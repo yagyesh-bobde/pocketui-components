@@ -1,0 +1,4 @@
+{
+  "extends": "@pocketui/config/tsconfig.base.json",
+  "include": ["index.ts", "ui", "demos", "meta"]
+}
