@@ -1,0 +1,13 @@
+{
+  "name": "accordion",
+  "title": "Accordion",
+  "description": "Vertically stacked sections that expand and collapse with a measured-height Reanimated animation.",
+  "files": [{ "path": "ui/accordion.tsx", "target": "components/ui/accordion.tsx" }],
+  "dependencies": {
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-worklets": ">=0.5.0"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true
+}
