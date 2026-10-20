@@ -9,5 +9,10 @@
   "isNew": true,
   "category": "Buttons",
   "hue": 215,
-  "createdAt": "2026-10-20"
+  "createdAt": "2026-10-20",
+  "recording": {
+    "video": "/recordings/button.mp4",
+    "poster": "/recordings/button.avif",
+    "aspect": "1206/2622"
+  }
 }

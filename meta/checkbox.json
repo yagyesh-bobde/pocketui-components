@@ -9,5 +9,10 @@
   "isNew": true,
   "category": "Forms",
   "hue": 265,
-  "createdAt": "2026-10-20"
+  "createdAt": "2026-10-20",
+  "recording": {
+    "video": "/recordings/checkbox.mp4",
+    "poster": "/recordings/checkbox.avif",
+    "aspect": "1206/2622"
+  }
 }

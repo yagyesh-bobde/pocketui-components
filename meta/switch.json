@@ -12,5 +12,10 @@
   "isNew": true,
   "category": "Forms",
   "hue": 330,
-  "createdAt": "2026-10-20"
+  "createdAt": "2026-10-20",
+  "recording": {
+    "video": "/recordings/switch.mp4",
+    "poster": "/recordings/switch.avif",
+    "aspect": "1206/2622"
+  }
 }

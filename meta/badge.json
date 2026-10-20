@@ -9,5 +9,10 @@
   "isNew": true,
   "category": "Badges",
   "hue": 38,
-  "createdAt": "2026-10-20"
+  "createdAt": "2026-10-20",
+  "recording": {
+    "video": "/recordings/badge.mp4",
+    "poster": "/recordings/badge.avif",
+    "aspect": "1206/2622"
+  }
 }

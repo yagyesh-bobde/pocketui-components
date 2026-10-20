@@ -12,5 +12,10 @@
   "isNew": true,
   "category": "Accordions",
   "hue": 160,
-  "createdAt": "2026-10-20"
+  "createdAt": "2026-10-20",
+  "recording": {
+    "video": "/recordings/accordion.mp4",
+    "poster": "/recordings/accordion.avif",
+    "aspect": "1206/2622"
+  }
 }

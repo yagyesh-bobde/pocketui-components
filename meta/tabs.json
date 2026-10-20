@@ -9,5 +9,10 @@
   "isNew": true,
   "category": "Tabs",
   "hue": 12,
-  "createdAt": "2026-10-20"
+  "createdAt": "2026-10-20",
+  "recording": {
+    "video": "/recordings/tabs.mp4",
+    "poster": "/recordings/tabs.avif",
+    "aspect": "1206/2622"
+  }
 }
