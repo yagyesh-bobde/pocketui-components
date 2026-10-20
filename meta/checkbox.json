@@ -1,0 +1,10 @@
+{
+  "name": "checkbox",
+  "title": "Checkbox",
+  "description": "Controlled or uncontrolled checkbox with a check mark drawn from plain Views.",
+  "files": [{ "path": "ui/checkbox.tsx", "target": "components/ui/checkbox.tsx" }],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true
+}

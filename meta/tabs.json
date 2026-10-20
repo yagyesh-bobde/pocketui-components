@@ -1,0 +1,10 @@
+{
+  "name": "tabs",
+  "title": "Tabs",
+  "description": "Segmented-control tabs that show one panel at a time, controlled or uncontrolled.",
+  "files": [{ "path": "ui/tabs.tsx", "target": "components/ui/tabs.tsx" }],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true
+}

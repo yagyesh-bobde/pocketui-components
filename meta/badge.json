@@ -1,0 +1,10 @@
+{
+  "name": "badge",
+  "title": "Badge",
+  "description": "Small pill for a status, count or tag, in default, secondary and outline variants.",
+  "files": [{ "path": "ui/badge.tsx", "target": "components/ui/badge.tsx" }],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true
+}
