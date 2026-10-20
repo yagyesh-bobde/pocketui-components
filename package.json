@@ -13,11 +13,16 @@
     "react-native-worklets": ">=0.5.0"
   },
   "devDependencies": {
-    "@pocketui/config": "workspace:*",
     "@types/react": "19.3.0",
     "react": "19.3.0",
     "react-native": "0.88.0",
     "react-native-reanimated": "4.7.1",
-    "react-native-worklets": "0.13.0"
+    "react-native-worklets": "0.13.0",
+    "typescript": "6.0.3"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yagyesh-bobde/pocketui-components.git"
   }
 }
