@@ -17,3 +17,28 @@ export interface ComponentMeta {
   readonly minReactNative: string;
   readonly isNew: boolean;
 }
+
+/** Gallery groups on the docs home page, in rail order. */
+export const componentCategories = ['Accordions', 'Badges', 'Buttons', 'Forms', 'Tabs'] as const;
+
+export type ComponentCategory = (typeof componentCategories)[number];
+
+/** A screen recording of the component, served from `apps/web/public/`. */
+export interface Recording {
+  /** e.g. `/recordings/accordion.mp4`. */
+  readonly video: string;
+  /** Still frame shown before the video plays, e.g. `/recordings/accordion.avif`. */
+  readonly poster: string;
+  /** CSS aspect ratio of the recording, e.g. `1206/2622`. */
+  readonly aspect?: string;
+}
+
+/** A component shown as a card in the gallery (every entry except `theme`). */
+export interface GalleryMeta extends ComponentMeta {
+  readonly category: ComponentCategory;
+  /** 0–359; tints the card's placeholder wash and its glow while playing. */
+  readonly hue: number;
+  /** ISO date (`YYYY-MM-DD`); the gallery's RECENT sort. */
+  readonly createdAt: string;
+  readonly recording?: Recording;
+}

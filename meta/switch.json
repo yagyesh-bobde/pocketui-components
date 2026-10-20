@@ -9,5 +9,8 @@
   },
   "registryDependencies": ["theme"],
   "minReactNative": "0.86.0",
-  "isNew": true
+  "isNew": true,
+  "category": "Forms",
+  "hue": 330,
+  "createdAt": "2026-10-20"
 }

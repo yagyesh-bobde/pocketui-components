@@ -6,19 +6,47 @@ import input from './meta/input.json';
 import switchMeta from './meta/switch.json';
 import tabs from './meta/tabs.json';
 import theme from './meta/theme.json';
-import type { ComponentMeta } from './meta/types';
+import {
+  type ComponentCategory,
+  type ComponentMeta,
+  componentCategories,
+  type GalleryMeta,
+} from './meta/types';
 
-// Showcase lists components in this order: Accordion first, then alphabetical.
+function isCategory(value: string): value is ComponentCategory {
+  return (componentCategories as readonly string[]).includes(value);
+}
+
+/**
+ * JSON imports widen `category` to `string`, so it is checked here at load time
+ * (along with `hue`) instead of by `satisfies`.
+ */
+function gallery(meta: Omit<GalleryMeta, 'category'> & { readonly category: string }): GalleryMeta {
+  const { category, hue } = meta;
+  if (!isCategory(category)) throw new Error(`${meta.name}: unknown category "${category}"`);
+  if (!Number.isInteger(hue) || hue < 0 || hue > 359) {
+    throw new Error(`${meta.name}: hue must be an integer from 0 to 359`);
+  }
+  return { ...meta, category };
+}
+
 export const registry = {
   theme,
-  accordion,
-  badge,
-  button,
-  checkbox,
-  input,
-  switch: switchMeta,
-  tabs,
+  accordion: gallery(accordion),
+  badge: gallery(badge),
+  button: gallery(button),
+  checkbox: gallery(checkbox),
+  input: gallery(input),
+  switch: gallery(switchMeta),
+  tabs: gallery(tabs),
 } satisfies Record<string, ComponentMeta>;
 
 export type RegistryName = keyof typeof registry;
-export type { ComponentMeta, RegistryFile } from './meta/types';
+export type {
+  ComponentCategory,
+  ComponentMeta,
+  GalleryMeta,
+  Recording,
+  RegistryFile,
+} from './meta/types';
+export { componentCategories };

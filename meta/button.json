@@ -6,5 +6,8 @@
   "dependencies": {},
   "registryDependencies": ["theme"],
   "minReactNative": "0.86.0",
-  "isNew": true
+  "isNew": true,
+  "category": "Buttons",
+  "hue": 215,
+  "createdAt": "2026-10-20"
 }
