@@ -1,0 +1,18 @@
+{
+  "name": "feed-footer",
+  "title": "Feed Footer",
+  "description": "Branded block for the end of a feed: full-bleed art, a stacked display headline with a vertical gradient, and a wordmark slot.",
+  "files": [{ "path": "ui/feed-footer.tsx", "target": "components/ui/feed-footer.tsx" }],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Footers",
+  "hue": 295,
+  "createdAt": "2026-10-22",
+  "recording": {
+    "video": "/recordings/feed-footer.mp4",
+    "poster": "/recordings/feed-footer.avif",
+    "aspect": "1206/2622"
+  }
+}
