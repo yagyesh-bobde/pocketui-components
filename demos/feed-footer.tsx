@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { FeedFooter } from '../ui/feed-footer';
-import { theme, useTheme } from '../ui/theme';
+import { FEED_FOOTER_BACKGROUND, FeedFooter } from '../ui/feed-footer';
+import { theme } from '../ui/theme';
 
 const PLANS = [
   { title: 'Rooftop jazz session', detail: 'Fri, 9 PM · 1.2 km' },
@@ -8,12 +8,13 @@ const PLANS = [
   { title: 'Open-air cinema', detail: 'Sun, 8 PM · 2.0 km' },
 ] as const;
 
-/** A short feed of placeholder cards that ends in the footer. */
-export default function FeedFooterDemo() {
-  const { colors } = useTheme();
+/** The footer keeps its own dark palette, so the screen that ends in it is dark in both schemes. */
+const colors = theme.dark;
 
+/** A short feed of placeholder cards that ends in the footer, on the footer's background. */
+export default function FeedFooterDemo() {
   return (
-    <View>
+    <View style={styles.screen}>
       <View style={styles.feed}>
         <Text style={[styles.heading, { color: colors.foreground }]}>Tonight near you</Text>
         {PLANS.map((plan) => (
@@ -41,6 +42,9 @@ export default function FeedFooterDemo() {
 }
 
 const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: FEED_FOOTER_BACKGROUND,
+  },
   feed: {
     gap: theme.spacing.md,
     padding: theme.spacing.lg,

@@ -3,6 +3,7 @@ import {
   Image,
   type ImageSourcePropType,
   type LayoutChangeEvent,
+  StatusBar,
   StyleSheet,
   Text,
   View,
@@ -16,6 +17,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HeroCarousel, type HeroCarouselItemInfo } from '../ui/hero-carousel';
 import { SearchBar } from '../ui/search-bar';
 import { theme, useTheme } from '../ui/theme';
@@ -25,6 +27,9 @@ import { theme, useTheme } from '../ui/theme';
  * header (location line + search bar) over them that tints per page. Pages 2 and 3 animate while
  * they are on screen: crossfading scenes with drifting food, and a headline that splits apart
  * over a dish slot that swaps every 0.9 s.
+ *
+ * Edge-to-edge: the hero starts at the top of the screen and grows by the status-bar inset, so
+ * the art runs up behind the system bar and the status-bar icons follow the header tint.
  */
 
 /** The art is drawn for a 1080x961 frame (384x342 dp) whose top 122 px sit under the status bar. */
@@ -33,9 +38,8 @@ const FRAME_H = 961;
 const STATUS_PX = 122;
 /** Frame px per dp. */
 const PX = 2.8125;
-/** The hero shows the frame minus its status-bar band, so it can sit below the system bar. */
+/** The hero below the status bar: the frame minus its status-bar band. The inset is added on top. */
 const HERO_ASPECT = FRAME_W / (FRAME_H - STATUS_PX);
-const FRAME_TOP = `${(-STATUS_PX / (FRAME_H - STATUS_PX)) * 100}%`;
 /** Autoplay slide, so a page keeps its state until it has left the screen. */
 const SLIDE = 450;
 
@@ -59,7 +63,11 @@ const WIGGLE_PERIOD = 900;
 /** A clock that stops counting after this long (~2.7 h); the page will have moved on. */
 const CLOCK_MAX = 1e7;
 
-const TITLE_TINTS = ['#293142', '#52224e', '#293142', '#293142'] as const;
+/** Header tint per page: white over the dark banners, navy over the light ones. */
+const TITLE_TINTS = ['#293142', '#ffffff', '#ffffff', '#293142'] as const;
+/** Avatar fill under a navy / white letter. */
+const AVATAR_ON_LIGHT = 'rgba(255, 255, 255, 0.6)';
+const AVATAR_ON_DARK = 'rgba(255, 255, 255, 0.2)';
 const PLACEHOLDERS = [
   'Search "biryani"',
   'Search "pizza"',
@@ -287,9 +295,12 @@ const DISHES = [
   { source: require('./assets/hero-carousel/b3-dish-4.webp'), aspect: 420 / 364 },
 ] as const;
 
-/** Price tags on page 3: % position and wiggle phase in turns. */
+/**
+ * Price tags on page 3: % position and wiggle phase in turns. The first sits under the status
+ * bar's content, right of the location text, so it stays clear of the clock and the header.
+ */
 const TAGS = [
-  { left: 20, top: 2, phase: 0 },
+  { left: 53, top: 11, phase: 0 },
   { left: 64.5, top: 22.5, phase: 0.33 },
   { left: 75.5, top: 85.5, phase: 0.66 },
 ] as const;
@@ -299,12 +310,16 @@ type Page = (typeof PAGES)[number];
 
 export default function HeroCarouselDemo() {
   const { colors } = useTheme();
+  const { top } = useSafeAreaInsets();
   const [page, setPage] = useState(0);
   const tint = TITLE_TINTS[page] ?? TITLE_TINTS[0];
+  const light = isLight(tint);
 
   return (
     <View style={styles.screen}>
+      <StatusBar barStyle={light ? 'light-content' : 'dark-content'} />
       <View style={styles.hero}>
+        <View style={[styles.heroSize, { marginTop: top }]} />
         <HeroCarousel
           data={PAGES}
           keyExtractor={(item) => item}
@@ -313,7 +328,7 @@ export default function HeroCarouselDemo() {
           style={styles.carousel}
           testID="hero-carousel"
         />
-        <View pointerEvents="box-none" style={styles.header}>
+        <View pointerEvents="box-none" style={[styles.header, { paddingTop: top }]}>
           <View style={styles.locationRow}>
             <Pin color={tint} />
             <View style={styles.location}>
@@ -327,7 +342,12 @@ export default function HeroCarouselDemo() {
                 Bengaluru, Karnataka, India
               </Text>
             </View>
-            <View style={[styles.avatar, { borderColor: tint }]}>
+            <View
+              style={[
+                styles.avatar,
+                { borderColor: tint, backgroundColor: light ? AVATAR_ON_DARK : AVATAR_ON_LIGHT },
+              ]}
+            >
               <Text style={[styles.avatarText, { color: tint }]}>P</Text>
             </View>
           </View>
@@ -378,6 +398,12 @@ function renderBanner({ item, isActive, isAdjacent }: HeroCarouselItemInfo<Page>
   }
 }
 
+/** Rough luma test for a `#rrggbb` tint, to pick status-bar icons that match it. */
+function isLight(hex: string): boolean {
+  const channel = (at: number) => Number.parseInt(hex.slice(at, at + 2), 16);
+  return 0.299 * channel(1) + 0.587 * channel(3) + 0.114 * channel(5) > 150;
+}
+
 interface BannerState {
   isActive: boolean;
   isAdjacent: boolean;
@@ -426,13 +452,17 @@ function useBannerClocks({ isActive, isAdjacent }: BannerState) {
   };
 }
 
-/** The 1080x961 art frame, cropped to the hero. Reports its width for px -> dp maths. */
+/**
+ * The 1080x961 art frame, bottom-aligned in the banner so it keeps its place under the header.
+ * A status bar taller than the art's 122 px band would leave a strip above it, so the backdrop is
+ * drawn again there, mirrored at the frame's top edge. Reports its width for px -> dp maths.
+ */
 function Frame({
-  background,
+  backdrop,
   frameWidth,
   children,
 }: {
-  background?: ImageSourcePropType;
+  backdrop: React.ReactNode;
   frameWidth?: SharedValue<number>;
   children?: React.ReactNode;
 }) {
@@ -440,18 +470,21 @@ function Frame({
   return (
     <View style={styles.banner}>
       <View style={styles.frame} onLayout={onLayout}>
-        {background !== undefined && (
-          <Image accessibilityIgnoresInvertColors source={background} style={styles.fill} />
-        )}
+        <View style={styles.bleed}>{backdrop}</View>
+        {backdrop}
         {children}
       </View>
     </View>
   );
 }
 
+function Backdrop({ source }: { source: ImageSourcePropType }) {
+  return <Image accessibilityIgnoresInvertColors source={source} style={styles.fill} />;
+}
+
 function DeliveryBanner() {
   return (
-    <Frame background={require('./assets/hero-carousel/b1-bg.webp')}>
+    <Frame backdrop={<Backdrop source={require('./assets/hero-carousel/b1-bg.webp')} />}>
       <View style={styles.deliveryCopy}>
         <Text style={styles.deliveryHeadline}>FREE DELIVERY</Text>
         <Text style={styles.deliverySub}>on orders above ₹99</Text>
@@ -494,8 +527,9 @@ function SubscriptionsBanner(state: BannerState) {
   const { loop, sequence } = useBannerClocks(state);
   const frameWidth = useSharedValue(0);
   return (
-    <Frame frameWidth={frameWidth}>
-      {SCENES.map((scene, index) => (
+    <Frame
+      frameWidth={frameWidth}
+      backdrop={SCENES.map((scene, index) => (
         <SceneBackground
           key={scene.label}
           source={scene.background}
@@ -503,6 +537,7 @@ function SubscriptionsBanner(state: BannerState) {
           clock={sequence}
         />
       ))}
+    >
       {SCENES.flatMap((scene, index) =>
         scene.objects.map((layer) => (
           <FloatingObject
@@ -639,17 +674,8 @@ const OFFER_LINES = [
 function OfferBanner(state: BannerState) {
   const { loop, sequence } = useBannerClocks(state);
   const frameWidth = useSharedValue(0);
-  const backgroundStyle = useAnimatedStyle(() => {
-    const pulse = 0.5 - 0.5 * Math.cos((2 * Math.PI * loop.value) / WIGGLE_PERIOD);
-    return { transform: [{ scale: 1 + 0.015 * pulse }] };
-  });
   return (
-    <Frame frameWidth={frameWidth}>
-      <Animated.Image
-        accessibilityIgnoresInvertColors
-        source={require('./assets/hero-carousel/b3-bg.webp')}
-        style={[styles.fill, backgroundStyle]}
-      />
+    <Frame frameWidth={frameWidth} backdrop={<PulsingBackground clock={loop} />}>
       {DISHES.map((dish, index) => (
         <Dish
           key={dish.aspect}
@@ -672,6 +698,21 @@ function OfferBanner(state: BannerState) {
         <PriceTag key={tag.phase} left={tag.left} top={tag.top} phase={tag.phase} clock={loop} />
       ))}
     </Frame>
+  );
+}
+
+/** The sunburst, breathing 1.5% in time with the price tags. */
+function PulsingBackground({ clock }: { clock: SharedValue<number> }) {
+  const animatedStyle = useAnimatedStyle(() => {
+    const pulse = 0.5 - 0.5 * Math.cos((2 * Math.PI * clock.value) / WIGGLE_PERIOD);
+    return { transform: [{ scale: 1 + 0.015 * pulse }] };
+  });
+  return (
+    <Animated.Image
+      accessibilityIgnoresInvertColors
+      source={require('./assets/hero-carousel/b3-bg.webp')}
+      style={[styles.fill, animatedStyle]}
+    />
   );
 }
 
@@ -775,7 +816,7 @@ function PriceTag({
 
 function RewardsBanner() {
   return (
-    <Frame background={require('./assets/hero-carousel/b4-bg.webp')}>
+    <Frame backdrop={<Backdrop source={require('./assets/hero-carousel/b4-bg.webp')} />}>
       <View style={styles.rewardsCopy}>
         <Text style={styles.rewardsHeadline}>ENJOY WELCOME REWARDS</Text>
         <Text style={styles.rewardsSub}>on your first 3 orders</Text>
@@ -838,6 +879,9 @@ const styles = StyleSheet.create({
   },
   hero: {
     width: '100%',
+  },
+  heroSize: {
+    width: '100%',
     aspectRatio: HERO_ASPECT,
   },
   carousel: {
@@ -877,7 +921,6 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.6)',
   },
   avatarText: {
     fontSize: theme.fontSize.sm,
@@ -936,8 +979,16 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     width: '100%',
-    top: FRAME_TOP,
+    bottom: 0,
     aspectRatio: FRAME_W / FRAME_H,
+  },
+  bleed: {
+    position: 'absolute',
+    left: 0,
+    width: '100%',
+    height: '100%',
+    bottom: '100%',
+    transform: [{ scaleY: -1 }],
   },
   fill: {
     ...StyleSheet.absoluteFill,
