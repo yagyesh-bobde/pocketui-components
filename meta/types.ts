@@ -19,7 +19,15 @@ export interface ComponentMeta {
 }
 
 /** Gallery groups on the docs home page, in rail order. */
-export const componentCategories = ['Accordions', 'Badges', 'Buttons', 'Forms', 'Tabs'] as const;
+export const componentCategories = [
+  'Accordions',
+  'Badges',
+  'Buttons',
+  'Carousels',
+  'Footers',
+  'Forms',
+  'Tabs',
+] as const;
 
 export type ComponentCategory = (typeof componentCategories)[number];
 

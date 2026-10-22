@@ -2,7 +2,10 @@ import accordion from './meta/accordion.json';
 import badge from './meta/badge.json';
 import button from './meta/button.json';
 import checkbox from './meta/checkbox.json';
+import feedFooter from './meta/feed-footer.json';
+import heroCarousel from './meta/hero-carousel.json';
 import input from './meta/input.json';
+import searchBar from './meta/search-bar.json';
 import switchMeta from './meta/switch.json';
 import tabs from './meta/tabs.json';
 import theme from './meta/theme.json';
@@ -36,7 +39,10 @@ export const registry = {
   badge: gallery(badge),
   button: gallery(button),
   checkbox: gallery(checkbox),
+  'feed-footer': gallery(feedFooter),
+  'hero-carousel': gallery(heroCarousel),
   input: gallery(input),
+  'search-bar': gallery(searchBar),
   switch: gallery(switchMeta),
   tabs: gallery(tabs),
 } satisfies Record<string, ComponentMeta>;
