@@ -1,0 +1,21 @@
+{
+  "name": "search-bar",
+  "title": "Search Bar",
+  "description": "Search field whose placeholder phrases slide up in turns, the old one out as the next one comes in, on the UI thread with Reanimated.",
+  "files": [{ "path": "ui/search-bar.tsx", "target": "components/ui/search-bar.tsx" }],
+  "dependencies": {
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-worklets": ">=0.5.0"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Forms",
+  "hue": 95,
+  "createdAt": "2026-10-22",
+  "recording": {
+    "video": "/recordings/search-bar.mp4",
+    "poster": "/recordings/search-bar.avif",
+    "aspect": "1206/2622"
+  }
+}
