@@ -14,6 +14,10 @@ type ColorToken =
   | 'success'
   | 'successForeground'
   | 'successSurface'
+  | 'successDepth'
+  | 'successTeal'
+  | 'successInk'
+  | 'mint'
   | 'danger'
   | 'dangerForeground'
   | 'warning'
@@ -28,7 +32,7 @@ interface Theme {
   readonly dark: ThemeColors;
   readonly spacing: Scale<'xs' | 'sm' | 'md' | 'lg' | 'xl'>;
   readonly radius: Scale<'sm' | 'md' | 'lg'>;
-  readonly fontSize: Scale<'sm' | 'md' | 'lg' | 'title' | 'heading' | 'display'>;
+  readonly fontSize: Scale<'sm' | 'md' | 'lg' | 'title' | 'heading' | 'display' | 'amount'>;
   readonly fontWeight: Readonly<
     Record<'regular' | 'medium' | 'semibold' | 'bold', NonNullable<TextStyle['fontWeight']>>
   >;
@@ -47,6 +51,10 @@ export const theme = {
     success: '#047a4a',
     successForeground: '#ffffff',
     successSurface: '#e8f7ef',
+    successDepth: '#123d30',
+    successTeal: '#175c69',
+    successInk: '#ffffff',
+    mint: '#047a4a',
     danger: '#dc2626',
     dangerForeground: '#ffffff',
     warning: '#f59e0b',
@@ -64,6 +72,10 @@ export const theme = {
     success: '#06c270',
     successForeground: '#09090b',
     successSurface: '#0b2a1c',
+    successDepth: '#081b16',
+    successTeal: '#125461',
+    successInk: '#ffffff',
+    mint: '#6cf1cc',
     danger: '#f87171',
     dangerForeground: '#09090b',
     warning: '#fbbf24',
@@ -71,7 +83,7 @@ export const theme = {
   },
   spacing: { xs: 4, sm: 8, md: 12, lg: 16, xl: 24 },
   radius: { sm: 4, md: 8, lg: 12 },
-  fontSize: { sm: 14, md: 16, lg: 18, title: 20, heading: 28, display: 48 },
+  fontSize: { sm: 14, md: 16, lg: 18, title: 20, heading: 28, display: 48, amount: 72 },
   fontWeight: { regular: '400', medium: '500', semibold: '600', bold: '700' },
 } as const satisfies Theme;
 
