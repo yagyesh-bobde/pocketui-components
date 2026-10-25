@@ -15,7 +15,7 @@ export default function PaymentDemo() {
       payee={payee}
       account={account}
       reference="DEMO-2048"
-      onPay={() => new Promise<void>((resolve) => setTimeout(resolve, 2600))}
+      onPay={() => new Promise<void>((resolve) => setTimeout(resolve, 5500))}
       onDone={() => setInstance((value) => value + 1)}
     />
   );
