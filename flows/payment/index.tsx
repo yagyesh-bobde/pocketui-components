@@ -1,5 +1,13 @@
 import { useContext, useEffect } from 'react';
-import { AccessibilityInfo, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import {
+  AccessibilityInfo,
+  Pressable,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import {
   SafeAreaInsetsContext,
@@ -39,7 +47,7 @@ export function PaymentFlow(props: PaymentFlowProps) {
 function PaymentContent(props: PaymentFlowProps) {
   const controller = usePayment(props);
   const { state } = controller;
-  const { colors, fontSize } = useTheme();
+  const { colors, fontSize, scheme } = useTheme();
   const insets = useSafeAreaInsets();
   const successful = state.step === 'success';
   const canCancel =
@@ -63,6 +71,7 @@ function PaymentContent(props: PaymentFlowProps) {
         { backgroundColor: successful ? colors.successDepth : colors.background },
       ]}
     >
+      <StatusBar barStyle={successful || scheme === 'dark' ? 'light-content' : 'dark-content'} />
       {successful ? (
         <Svg style={StyleSheet.absoluteFill} width="100%" height="100%" accessible={false}>
           <Defs>

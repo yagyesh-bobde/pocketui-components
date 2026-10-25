@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
@@ -16,6 +16,7 @@ import { PaymentIcon } from './icons';
 const KNOB = 68;
 export function SlideToPay({ enabled, onComplete }: { enabled: boolean; onComplete: () => void }) {
   const { colors, fontSize, fontWeight } = useTheme();
+  const [trackWidth, setTrackWidth] = useState(0);
   const travel = useSharedValue(0);
   const position = useSharedValue(0);
   const completed = useSharedValue(false);
@@ -63,7 +64,9 @@ export function SlideToPay({ enabled, onComplete }: { enabled: boolean; onComple
       <View
         testID="payment-slide"
         onLayout={(event) => {
-          travel.value = Math.max(0, event.nativeEvent.layout.width - KNOB - 8);
+          const width = event.nativeEvent.layout.width;
+          setTrackWidth(width);
+          travel.value = Math.max(0, width - KNOB - 8);
         }}
         style={[
           styles.track,
@@ -71,7 +74,7 @@ export function SlideToPay({ enabled, onComplete }: { enabled: boolean; onComple
         ]}
       >
         <Animated.View pointerEvents="none" style={[styles.fill, fill]}>
-          <Svg width="100%" height="100%" accessible={false}>
+          <Svg width={trackWidth} height={54} accessible={false}>
             <Defs>
               <LinearGradient id="payment-trail" x1="0" y1="0" x2="1" y2="0">
                 <Stop offset="0" stopColor={colors.successSurface} />
@@ -126,7 +129,14 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     justifyContent: 'center',
   },
-  fill: { position: 'absolute', left: 0, top: 0, bottom: 0, borderRadius: 28 },
+  fill: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    borderRadius: 28,
+    overflow: 'hidden',
+  },
   knob: {
     position: 'absolute',
     left: 3,
