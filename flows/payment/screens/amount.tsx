@@ -23,6 +23,7 @@ export function AmountScreen({
       <View style={styles.summary}>
         <View style={[styles.avatar, { backgroundColor: colors.successSurface }]}>
           <Text
+            maxFontSizeMultiplier={1}
             style={{
               color: colors.success,
               fontSize: fontSize.title,
