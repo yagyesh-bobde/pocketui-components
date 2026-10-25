@@ -19,6 +19,7 @@ export interface PaymentReceipt {
 export interface PaymentFlowProps {
   amount?: number;
   payee: PaymentPayee;
+  account?: { label: string; detail?: string };
   onPay: (request: PaymentRequest) => Promise<void>;
   onDone: (receipt: PaymentReceipt) => void;
   onCancel?: () => void;

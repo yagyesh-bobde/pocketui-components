@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../../../ui/theme';
-import type { PaymentPayee } from '../model';
+import type { PaymentFlowProps, PaymentPayee } from '../model';
 import { Keypad } from '../parts/keypad';
 import { SlideToPay } from '../parts/slide-to-pay';
 import type { PaymentController } from '../use-payment';
@@ -8,9 +8,11 @@ import type { PaymentController } from '../use-payment';
 export function AmountScreen({
   controller,
   payee,
+  account,
 }: {
   controller: PaymentController;
   payee: PaymentPayee;
+  account?: PaymentFlowProps['account'];
 }) {
   const { colors, fontSize, fontWeight } = useTheme();
   const [whole = '0', fraction] = controller.state.amountDraft.split('.');
@@ -68,10 +70,10 @@ export function AmountScreen({
               fontWeight: fontWeight.medium,
             }}
           >
-            Payment account
+            {account?.label ?? 'Payment account'}
           </Text>
           <Text style={{ color: colors.mutedForeground, fontSize: fontSize.sm }}>
-            Managed by your app
+            {account?.detail ?? 'Confirm with your app passcode'}
           </Text>
         </View>
         <SlideToPay enabled={controller.canConfirmAmount} onComplete={controller.confirmAmount} />

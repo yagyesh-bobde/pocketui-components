@@ -115,7 +115,7 @@ function PaymentContent(props: PaymentFlowProps) {
           ) : null}
         </View>
         {state.step === 'amount' ? (
-          <AmountScreen controller={controller} payee={props.payee} />
+          <AmountScreen controller={controller} payee={props.payee} account={props.account} />
         ) : null}
         {state.step === 'passcode' ? <PasscodeScreen controller={controller} /> : null}
         {state.step === 'processing' || state.step === 'success' ? (
