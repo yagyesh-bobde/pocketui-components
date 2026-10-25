@@ -71,5 +71,10 @@
   "isNew": true,
   "category": "Flows",
   "hue": 160,
-  "createdAt": "2026-10-25"
+  "createdAt": "2026-10-25",
+  "recording": {
+    "video": "/recordings/payment.mp4",
+    "poster": "/recordings/payment.avif",
+    "aspect": "1206/2622"
+  }
 }
