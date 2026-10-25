@@ -5,6 +5,7 @@ import checkbox from './meta/checkbox.json';
 import feedFooter from './meta/feed-footer.json';
 import heroCarousel from './meta/hero-carousel.json';
 import input from './meta/input.json';
+import payment from './meta/payment.json';
 import searchBar from './meta/search-bar.json';
 import switchMeta from './meta/switch.json';
 import tabs from './meta/tabs.json';
@@ -94,6 +95,7 @@ export const registry = {
   'feed-footer': gallery(feedFooter),
   'hero-carousel': gallery(heroCarousel),
   input: gallery(input),
+  payment: gallery(payment),
   'search-bar': gallery(searchBar),
   switch: gallery(switchMeta),
   tabs: gallery(tabs),

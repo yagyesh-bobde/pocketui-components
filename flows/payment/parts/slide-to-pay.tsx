@@ -93,6 +93,7 @@ export function SlideToPay({ enabled, onComplete }: { enabled: boolean; onComple
         </Animated.Text>
         <GestureDetector gesture={gesture}>
           <Animated.View
+            testID="payment-slide-knob"
             accessible={false}
             style={[styles.knob, { backgroundColor: colors.primary }, knob]}
           >
