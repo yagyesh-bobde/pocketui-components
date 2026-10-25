@@ -2,6 +2,8 @@
   "name": "feed-footer",
   "title": "Feed Footer",
   "description": "Branded block for the end of a feed: full-bleed art, a stacked display headline with a vertical gradient, and a wordmark slot.",
+  "kind": "component",
+  "entry": "ui/feed-footer.tsx",
   "files": [{ "path": "ui/feed-footer.tsx", "target": "components/ui/feed-footer.tsx" }],
   "dependencies": {},
   "registryDependencies": ["theme"],

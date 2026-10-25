@@ -1,4 +1,4 @@
-import { useColorScheme } from 'react-native';
+import { type TextStyle, useColorScheme } from 'react-native';
 
 export type ColorScheme = 'light' | 'dark';
 
@@ -10,7 +10,14 @@ type ColorToken =
   | 'mutedForeground'
   | 'border'
   | 'primary'
-  | 'primaryForeground';
+  | 'primaryForeground'
+  | 'success'
+  | 'successForeground'
+  | 'successSurface'
+  | 'danger'
+  | 'dangerForeground'
+  | 'warning'
+  | 'warningForeground';
 
 export type ThemeColors = Readonly<Record<ColorToken, string>>;
 
@@ -21,7 +28,10 @@ interface Theme {
   readonly dark: ThemeColors;
   readonly spacing: Scale<'xs' | 'sm' | 'md' | 'lg' | 'xl'>;
   readonly radius: Scale<'sm' | 'md' | 'lg'>;
-  readonly fontSize: Scale<'sm' | 'md' | 'lg'>;
+  readonly fontSize: Scale<'sm' | 'md' | 'lg' | 'title' | 'heading' | 'display'>;
+  readonly fontWeight: Readonly<
+    Record<'regular' | 'medium' | 'semibold' | 'bold', NonNullable<TextStyle['fontWeight']>>
+  >;
 }
 
 export const theme = {
@@ -34,6 +44,13 @@ export const theme = {
     border: '#e4e4e7',
     primary: '#18181b',
     primaryForeground: '#fafafa',
+    success: '#047a4a',
+    successForeground: '#ffffff',
+    successSurface: '#e8f7ef',
+    danger: '#dc2626',
+    dangerForeground: '#ffffff',
+    warning: '#f59e0b',
+    warningForeground: '#09090b',
   },
   dark: {
     background: '#09090b',
@@ -44,10 +61,18 @@ export const theme = {
     border: '#27272a',
     primary: '#fafafa',
     primaryForeground: '#18181b',
+    success: '#06c270',
+    successForeground: '#09090b',
+    successSurface: '#0b2a1c',
+    danger: '#f87171',
+    dangerForeground: '#09090b',
+    warning: '#fbbf24',
+    warningForeground: '#09090b',
   },
   spacing: { xs: 4, sm: 8, md: 12, lg: 16, xl: 24 },
   radius: { sm: 4, md: 8, lg: 12 },
-  fontSize: { sm: 14, md: 16, lg: 18 },
+  fontSize: { sm: 14, md: 16, lg: 18, title: 20, heading: 28, display: 48 },
+  fontWeight: { regular: '400', medium: '500', semibold: '600', bold: '700' },
 } as const satisfies Theme;
 
 export interface ThemeValue {
@@ -56,6 +81,7 @@ export interface ThemeValue {
   readonly spacing: typeof theme.spacing;
   readonly radius: typeof theme.radius;
   readonly fontSize: typeof theme.fontSize;
+  readonly fontWeight: typeof theme.fontWeight;
 }
 
 const { light, dark, ...tokens } = theme;

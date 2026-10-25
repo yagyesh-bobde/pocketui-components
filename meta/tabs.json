@@ -2,6 +2,8 @@
   "name": "tabs",
   "title": "Tabs",
   "description": "Segmented-control tabs that show one panel at a time, controlled or uncontrolled.",
+  "kind": "component",
+  "entry": "ui/tabs.tsx",
   "files": [{ "path": "ui/tabs.tsx", "target": "components/ui/tabs.tsx" }],
   "dependencies": {},
   "registryDependencies": ["theme"],

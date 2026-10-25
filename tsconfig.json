@@ -17,5 +17,5 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": ["index.ts", "ui", "demos", "meta"]
+  "include": ["index.ts", "ui", "flows", "demos", "meta"]
 }

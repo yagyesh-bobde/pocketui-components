@@ -1,7 +1,9 @@
 {
   "name": "theme",
   "title": "Theme",
-  "description": "Shared light and dark colors, spacing, radius and font sizes. Copy once; every component imports it.",
+  "description": "Shared light and dark colors, spacing, radius, font sizes and weights. Copy once; every component imports it.",
+  "kind": "component",
+  "entry": "ui/theme.ts",
   "files": [{ "path": "ui/theme.ts", "target": "components/ui/theme.ts" }],
   "dependencies": {},
   "registryDependencies": [],
