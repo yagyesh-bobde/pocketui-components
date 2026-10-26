@@ -40,9 +40,13 @@ export const componentCategories = [
   'Badges',
   'Buttons',
   'Carousels',
+  'Feedback',
   'Flows',
   'Footers',
   'Forms',
+  'Lists',
+  'Menus',
+  'Sheets',
   'Tabs',
   'Text',
 ] as const;

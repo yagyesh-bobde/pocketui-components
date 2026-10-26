@@ -1,7 +1,9 @@
 import accordion from './meta/accordion.json';
 import badge from './meta/badge.json';
+import bottomSheetMeta from './meta/bottom-sheet.json';
 import button from './meta/button.json';
 import checkbox from './meta/checkbox.json';
+import contextMenuMeta from './meta/context-menu.json';
 import feedFooter from './meta/feed-footer.json';
 import heroCarousel from './meta/hero-carousel.json';
 import highlightTextMeta from './meta/highlight-text.json';
@@ -12,10 +14,13 @@ import rotatingTextMeta from './meta/rotating-text.json';
 import scrambleTextMeta from './meta/scramble-text.json';
 import searchBar from './meta/search-bar.json';
 import shimmerTextMeta from './meta/shimmer-text.json';
+import skeletonMeta from './meta/skeleton.json';
+import swipeableRowMeta from './meta/swipeable-row.json';
 import switchMeta from './meta/switch.json';
 import tabs from './meta/tabs.json';
 import textRevealMeta from './meta/text-reveal.json';
 import theme from './meta/theme.json';
+import toastMeta from './meta/toast.json';
 import {
   type ComponentCategory,
   type ComponentMeta,
@@ -96,6 +101,11 @@ function gallery(meta: RawGalleryMeta): GalleryMeta {
 
 export const registry = {
   theme: normalizeMeta(theme),
+  'bottom-sheet': gallery(bottomSheetMeta),
+  toast: gallery(toastMeta),
+  skeleton: gallery(skeletonMeta),
+  'swipeable-row': gallery(swipeableRowMeta),
+  'context-menu': gallery(contextMenuMeta),
   accordion: gallery(accordion),
   badge: gallery(badge),
   button: gallery(button),

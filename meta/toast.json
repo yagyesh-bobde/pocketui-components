@@ -1,0 +1,31 @@
+{
+  "name": "toast",
+  "title": "Toast",
+  "description": "Stacked notifications for success, errors, and undo actions, with background-aware timers.",
+  "kind": "component",
+  "entry": "ui/toast.tsx",
+  "files": [
+    {
+      "path": "ui/toast.tsx",
+      "target": "components/ui/toast.tsx"
+    },
+    {
+      "path": "ui/interaction-utils.ts",
+      "target": "components/ui/interaction-utils.ts"
+    }
+  ],
+  "dependencies": {
+    "react-native-safe-area-context": ">=5.10.1"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Feedback",
+  "hue": 150,
+  "createdAt": "2026-10-27",
+  "recording": {
+    "video": "/recordings/toast.mp4",
+    "poster": "/recordings/toast.avif",
+    "aspect": "1206/2622"
+  }
+}

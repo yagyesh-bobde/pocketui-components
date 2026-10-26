@@ -1,0 +1,33 @@
+{
+  "name": "swipeable-row",
+  "title": "Swipeable Row",
+  "description": "Reveal trailing archive and delete actions while preserving vertical list scrolling.",
+  "kind": "component",
+  "entry": "ui/swipeable-row.tsx",
+  "files": [
+    {
+      "path": "ui/swipeable-row.tsx",
+      "target": "components/ui/swipeable-row.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    },
+    {
+      "path": "ui/interaction-utils.ts",
+      "target": "components/ui/interaction-utils.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Lists",
+  "hue": 28,
+  "createdAt": "2026-10-27",
+  "recording": {
+    "video": "/recordings/swipeable-row.mp4",
+    "poster": "/recordings/swipeable-row.avif",
+    "aspect": "1206/2622"
+  }
+}
