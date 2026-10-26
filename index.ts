@@ -4,11 +4,17 @@ import button from './meta/button.json';
 import checkbox from './meta/checkbox.json';
 import feedFooter from './meta/feed-footer.json';
 import heroCarousel from './meta/hero-carousel.json';
+import highlightTextMeta from './meta/highlight-text.json';
 import input from './meta/input.json';
+import numberTickerMeta from './meta/number-ticker.json';
 import payment from './meta/payment.json';
+import rotatingTextMeta from './meta/rotating-text.json';
+import scrambleTextMeta from './meta/scramble-text.json';
 import searchBar from './meta/search-bar.json';
+import shimmerTextMeta from './meta/shimmer-text.json';
 import switchMeta from './meta/switch.json';
 import tabs from './meta/tabs.json';
+import textRevealMeta from './meta/text-reveal.json';
 import theme from './meta/theme.json';
 import {
   type ComponentCategory,
@@ -21,6 +27,8 @@ import {
   registryFileTypes,
   registryKinds,
 } from './meta/types';
+import typewriterMeta from './meta/typewriter.json';
+import waveTextMeta from './meta/wave-text.json';
 
 /** A meta JSON as imported: string unions are widened to `string`. */
 export interface RawMeta extends Omit<ComponentMeta, 'kind' | 'files'> {
@@ -99,6 +107,14 @@ export const registry = {
   'search-bar': gallery(searchBar),
   switch: gallery(switchMeta),
   tabs: gallery(tabs),
+  'text-reveal': gallery(textRevealMeta),
+  typewriter: gallery(typewriterMeta),
+  'rotating-text': gallery(rotatingTextMeta),
+  'shimmer-text': gallery(shimmerTextMeta),
+  'scramble-text': gallery(scrambleTextMeta),
+  'number-ticker': gallery(numberTickerMeta),
+  'wave-text': gallery(waveTextMeta),
+  'highlight-text': gallery(highlightTextMeta),
 } satisfies Record<string, ComponentMeta>;
 
 export type RegistryName = keyof typeof registry;

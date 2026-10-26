@@ -44,6 +44,7 @@ export const componentCategories = [
   'Footers',
   'Forms',
   'Tabs',
+  'Text',
 ] as const;
 
 export type ComponentCategory = (typeof componentCategories)[number];
