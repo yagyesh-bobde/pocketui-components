@@ -52,7 +52,11 @@ export function SuccessScreen({
           testID="payment-view-receipt"
           accessibilityRole="button"
           onPress={onReceipt}
-          style={[styles.button, { borderColor: colors.successInk }]}
+          style={({ pressed }) => [
+            styles.button,
+            { borderColor: colors.successInk },
+            pressed && styles.pressed,
+          ]}
         >
           <Text style={{ color: colors.successInk, fontSize: fontSize.md }}>View receipt</Text>
         </Pressable>
@@ -60,7 +64,11 @@ export function SuccessScreen({
           testID="payment-done"
           accessibilityRole="button"
           onPress={onDone}
-          style={[styles.button, { backgroundColor: colors.successInk }]}
+          style={({ pressed }) => [
+            styles.button,
+            { backgroundColor: colors.successInk },
+            pressed && styles.pressed,
+          ]}
         >
           <Text
             style={{
@@ -96,4 +104,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  pressed: { opacity: 0.7 },
 });

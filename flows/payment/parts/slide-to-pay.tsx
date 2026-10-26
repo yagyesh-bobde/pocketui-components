@@ -34,6 +34,7 @@ export function SlideToPay({ enabled, onComplete }: { enabled: boolean; onComple
     .activeOffsetX(5)
     .failOffsetY([-12, 12])
     .onStart(() => {
+      if (completed.value) return;
       cancelAnimation(position);
       start.value = position.value;
     })
@@ -42,9 +43,12 @@ export function SlideToPay({ enabled, onComplete }: { enabled: boolean; onComple
         position.value = Math.max(0, Math.min(travel.value, start.value + event.translationX));
     })
     .onEnd(() => {
-      if (!completed.value && travel.value > 0 && position.value >= travel.value) {
+      // Past 85% the knob finishes the travel itself; the step changes once it lands.
+      if (!completed.value && travel.value > 0 && position.value >= travel.value * 0.85) {
         completed.value = true;
-        runOnJS(complete)();
+        position.value = withTiming(travel.value, { duration: 140 }, (finished) => {
+          if (finished) runOnJS(complete)();
+        });
       }
     })
     .onFinalize(() => {
@@ -111,7 +115,7 @@ export function SlideToPay({ enabled, onComplete }: { enabled: boolean; onComple
         accessibilityState={{ disabled: !enabled }}
         disabled={!enabled}
         onPress={complete}
-        style={styles.alternative}
+        style={({ pressed }) => [styles.alternative, pressed && styles.pressed]}
       >
         <Text style={{ color: colors.mutedForeground, fontSize: fontSize.sm }}>
           Continue without sliding
@@ -148,4 +152,5 @@ const styles = StyleSheet.create({
   },
   label: { textAlign: 'center', paddingLeft: 40 },
   alternative: { minHeight: 44, alignItems: 'center', justifyContent: 'center' },
+  pressed: { opacity: 0.7 },
 });

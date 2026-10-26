@@ -1,10 +1,16 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text } from 'react-native';
+import Animated, { FadeIn, useReducedMotion } from 'react-native-reanimated';
 import { useTheme } from '../../../ui/theme';
 
 export function FailureScreen({ message, onRetry }: { message: string; onRetry: () => void }) {
   const { colors, fontSize, fontWeight } = useTheme();
+  const reduced = useReducedMotion();
   return (
-    <View testID="payment-failure" style={styles.content}>
+    <Animated.View
+      testID="payment-failure"
+      entering={reduced ? undefined : FadeIn.duration(400)}
+      style={styles.content}
+    >
       <Text
         style={[
           styles.center,
@@ -20,7 +26,11 @@ export function FailureScreen({ message, onRetry }: { message: string; onRetry: 
         testID="payment-retry"
         accessibilityRole="button"
         onPress={onRetry}
-        style={[styles.button, { backgroundColor: colors.primary }]}
+        style={({ pressed }) => [
+          styles.button,
+          { backgroundColor: colors.primary },
+          pressed && styles.pressed,
+        ]}
       >
         <Text
           style={{
@@ -32,7 +42,7 @@ export function FailureScreen({ message, onRetry }: { message: string; onRetry: 
           Retry
         </Text>
       </Pressable>
-    </View>
+    </Animated.View>
   );
 }
 const styles = StyleSheet.create({
@@ -45,4 +55,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  pressed: { opacity: 0.7 },
 });

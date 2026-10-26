@@ -1,12 +1,18 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import Animated, { FadeInRight, useReducedMotion, ZoomIn } from 'react-native-reanimated';
 import { useTheme } from '../../../ui/theme';
 import { Keypad } from '../parts/keypad';
 import type { PaymentController } from '../use-payment';
 
 export function PasscodeScreen({ controller }: { controller: PaymentController }) {
   const { colors, fontSize, fontWeight } = useTheme();
+  const reduced = useReducedMotion();
   return (
-    <View testID="payment-passcode" style={styles.screen}>
+    <Animated.View
+      testID="payment-passcode"
+      entering={reduced ? undefined : FadeInRight.duration(280)}
+      style={styles.screen}
+    >
       <View style={styles.summary}>
         <Text
           style={{
@@ -26,16 +32,18 @@ export function PasscodeScreen({ controller }: { controller: PaymentController }
           style={styles.dots}
         >
           {[0, 1, 2, 3].map((index) => (
-            <View
-              key={index}
-              style={[
-                styles.dot,
-                {
-                  borderColor: colors.foreground,
-                  backgroundColor: index < controller.pinLength ? colors.foreground : undefined,
-                },
-              ]}
-            />
+            <View key={index} style={[styles.dot, { borderColor: colors.foreground }]}>
+              {index < controller.pinLength ? (
+                <Animated.View
+                  entering={reduced ? undefined : ZoomIn.duration(160)}
+                  style={[
+                    StyleSheet.absoluteFill,
+                    styles.dotFill,
+                    { backgroundColor: colors.foreground },
+                  ]}
+                />
+              ) : null}
+            </View>
           ))}
         </View>
         <Text style={{ color: colors.foreground, fontSize: fontSize.title }}>
@@ -50,9 +58,10 @@ export function PasscodeScreen({ controller }: { controller: PaymentController }
           accessibilityState={{ disabled: !controller.canConfirmPayment }}
           disabled={!controller.canConfirmPayment}
           onPress={controller.confirmPayment}
-          style={[
+          style={({ pressed }) => [
             styles.confirm,
             { backgroundColor: colors.primary, opacity: controller.canConfirmPayment ? 1 : 0.4 },
+            pressed && styles.pressed,
           ]}
         >
           <Text
@@ -71,7 +80,7 @@ export function PasscodeScreen({ controller }: { controller: PaymentController }
           }
         />
       </View>
-    </View>
+    </Animated.View>
   );
 }
 const styles = StyleSheet.create({
@@ -80,6 +89,7 @@ const styles = StyleSheet.create({
   center: { textAlign: 'center' },
   dots: { flexDirection: 'row', gap: 20, paddingVertical: 24 },
   dot: { width: 16, height: 16, borderWidth: 1.5, borderRadius: 8 },
+  dotFill: { borderRadius: 8 },
   controls: { gap: 16 },
   confirm: {
     minHeight: 52,
@@ -88,4 +98,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  pressed: { opacity: 0.7 },
 });

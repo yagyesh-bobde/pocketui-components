@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import Animated, { FadeInLeft, useReducedMotion } from 'react-native-reanimated';
 import { useTheme } from '../../../ui/theme';
 import type { PaymentFlowProps, PaymentPayee } from '../model';
 import { Keypad } from '../parts/keypad';
@@ -15,11 +16,17 @@ export function AmountScreen({
   account?: PaymentFlowProps['account'];
 }) {
   const { colors, fontSize, fontWeight } = useTheme();
+  const reduced = useReducedMotion();
   const [whole = '0', fraction] = controller.state.amountDraft.split('.');
   const displayAmount =
     Number(whole).toLocaleString('en-IN') + (fraction === undefined ? '' : `.${fraction}`);
   return (
-    <View style={styles.screen} testID="payment-amount">
+    // Only Back remounts this screen, so it always slides in from the left.
+    <Animated.View
+      testID="payment-amount"
+      entering={reduced ? undefined : FadeInLeft.duration(280)}
+      style={styles.screen}
+    >
       <View style={styles.summary}>
         <View style={[styles.avatar, { backgroundColor: colors.successSurface }]}>
           <Text
@@ -80,7 +87,7 @@ export function AmountScreen({
         <SlideToPay enabled={controller.canConfirmAmount} onComplete={controller.confirmAmount} />
         <Keypad decimal onKey={controller.editAmount} />
       </View>
-    </View>
+    </Animated.View>
   );
 }
 const styles = StyleSheet.create({

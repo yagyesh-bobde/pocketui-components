@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { type ComponentRef, useContext, useEffect, useRef } from 'react';
 import {
   AccessibilityInfo,
   Pressable,
@@ -9,6 +9,11 @@ import {
   View,
 } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import Animated, {
+  FadeInRight,
+  LayoutAnimationConfig,
+  useReducedMotion,
+} from 'react-native-reanimated';
 import {
   SafeAreaInsetsContext,
   SafeAreaProvider,
@@ -49,6 +54,8 @@ function PaymentContent(props: PaymentFlowProps) {
   const { state } = controller;
   const { colors, fontSize, scheme } = useTheme();
   const insets = useSafeAreaInsets();
+  const reduced = useReducedMotion();
+  const scrollRef = useRef<ComponentRef<typeof ScrollView>>(null);
   const successful = state.step === 'success';
   const canCancel =
     Boolean(props.onCancel) && ['amount', 'passcode', 'failure'].includes(state.step);
@@ -62,6 +69,8 @@ function PaymentContent(props: PaymentFlowProps) {
       receipt: 'Payment receipt',
       failure: 'Payment could not be completed',
     };
+    // Each step starts at the top instead of inheriting the previous step's scroll offset.
+    scrollRef.current?.scrollTo({ y: 0, animated: false });
     AccessibilityInfo.announceForAccessibility(messages[state.step]);
   }, [state.step]);
   return (
@@ -88,71 +97,78 @@ function PaymentContent(props: PaymentFlowProps) {
           <Rect width="100%" height="100%" fill="url(#payment-glow)" />
         </Svg>
       ) : null}
-      <ScrollView
-        contentContainerStyle={[
-          styles.scroll,
-          {
-            paddingTop: insets.top + 12,
-            paddingBottom: insets.bottom + 12,
-            paddingLeft: insets.left + 24,
-            paddingRight: insets.right + 24,
-          },
-        ]}
-      >
-        <View style={styles.nav}>
-          {canGoBack ? (
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Back to amount"
-              onPress={controller.back}
-              style={styles.navButton}
-            >
-              <Text style={{ color: colors.foreground, fontSize: fontSize.md }}>Back</Text>
-            </Pressable>
-          ) : (
-            <View />
-          )}
-          {canCancel ? (
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Cancel payment"
-              onPress={controller.cancel}
-              style={styles.navButton}
-            >
-              <Text style={{ color: colors.mutedForeground, fontSize: fontSize.md }}>Cancel</Text>
-            </Pressable>
-          ) : null}
-        </View>
-        {state.step === 'amount' ? (
-          <AmountScreen controller={controller} payee={props.payee} account={props.account} />
-        ) : null}
-        {state.step === 'passcode' ? <PasscodeScreen controller={controller} /> : null}
-        {state.step === 'processing' || state.step === 'success' ? (
-          <View style={styles.outcome}>
-            <PaymentMark success={successful} />
-            {successful && state.receipt ? (
-              <SuccessScreen
-                receipt={state.receipt}
-                onReceipt={controller.showReceipt}
-                onDone={controller.done}
-              />
+      {/* Steps animate in when they change; the first render leaves the host's own transition alone. */}
+      <LayoutAnimationConfig skipEntering>
+        <ScrollView
+          ref={scrollRef}
+          contentContainerStyle={[
+            styles.scroll,
+            {
+              paddingTop: insets.top + 12,
+              paddingBottom: insets.bottom + 12,
+              paddingLeft: insets.left + 24,
+              paddingRight: insets.right + 24,
+            },
+          ]}
+        >
+          <View style={styles.nav}>
+            {canGoBack ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Back to amount"
+                onPress={controller.back}
+                style={({ pressed }) => [styles.navButton, pressed && styles.pressed]}
+              >
+                <Text style={{ color: colors.foreground, fontSize: fontSize.md }}>Back</Text>
+              </Pressable>
             ) : (
-              <ProcessingScreen />
+              <View />
             )}
+            {canCancel ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Cancel payment"
+                onPress={controller.cancel}
+                style={({ pressed }) => [styles.navButton, pressed && styles.pressed]}
+              >
+                <Text style={{ color: colors.mutedForeground, fontSize: fontSize.md }}>Cancel</Text>
+              </Pressable>
+            ) : null}
           </View>
-        ) : null}
-        {state.step === 'receipt' && state.receipt ? (
-          <ReceiptScreen receipt={state.receipt} onDone={controller.done} />
-        ) : null}
-        {state.step === 'failure' ? (
-          <FailureScreen
-            message={
-              controller.failureMessage || 'Payment could not be completed. Please try again.'
-            }
-            onRetry={controller.retry}
-          />
-        ) : null}
-      </ScrollView>
+          {state.step === 'amount' ? (
+            <AmountScreen controller={controller} payee={props.payee} account={props.account} />
+          ) : null}
+          {state.step === 'passcode' ? <PasscodeScreen controller={controller} /> : null}
+          {state.step === 'processing' || state.step === 'success' ? (
+            <Animated.View
+              entering={reduced ? undefined : FadeInRight.duration(280)}
+              style={styles.outcome}
+            >
+              <PaymentMark success={successful} />
+              {successful && state.receipt ? (
+                <SuccessScreen
+                  receipt={state.receipt}
+                  onReceipt={controller.showReceipt}
+                  onDone={controller.done}
+                />
+              ) : (
+                <ProcessingScreen />
+              )}
+            </Animated.View>
+          ) : null}
+          {state.step === 'receipt' && state.receipt ? (
+            <ReceiptScreen receipt={state.receipt} onDone={controller.done} />
+          ) : null}
+          {state.step === 'failure' ? (
+            <FailureScreen
+              message={
+                controller.failureMessage || 'Payment could not be completed. Please try again.'
+              }
+              onRetry={controller.retry}
+            />
+          ) : null}
+        </ScrollView>
+      </LayoutAnimationConfig>
     </View>
   );
 }
@@ -166,5 +182,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   navButton: { minHeight: 44, minWidth: 44, justifyContent: 'center' },
+  pressed: { opacity: 0.7 },
   outcome: { flexGrow: 1, paddingVertical: 48, gap: 24 },
 });

@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import Animated, { FadeInRight, useReducedMotion } from 'react-native-reanimated';
 import { useTheme } from '../../../ui/theme';
 import type { PaymentReceipt } from '../model';
 
@@ -10,6 +11,7 @@ export function ReceiptScreen({
   onDone: () => void;
 }) {
   const { colors, fontSize, fontWeight } = useTheme();
+  const reduced = useReducedMotion();
   const rows = [
     ['To', receipt.payee.name],
     ...(receipt.payee.handle ? [['Handle', receipt.payee.handle]] : []),
@@ -17,7 +19,11 @@ export function ReceiptScreen({
     ...(receipt.reference ? [['Reference', receipt.reference]] : []),
   ];
   return (
-    <View testID="payment-receipt" style={styles.content}>
+    <Animated.View
+      testID="payment-receipt"
+      entering={reduced ? undefined : FadeInRight.duration(280)}
+      style={styles.content}
+    >
       <Text
         style={{
           color: colors.foreground,
@@ -51,7 +57,11 @@ export function ReceiptScreen({
         testID="payment-done"
         accessibilityRole="button"
         onPress={onDone}
-        style={[styles.button, { backgroundColor: colors.primary }]}
+        style={({ pressed }) => [
+          styles.button,
+          { backgroundColor: colors.primary },
+          pressed && styles.pressed,
+        ]}
       >
         <Text
           style={{
@@ -63,7 +73,7 @@ export function ReceiptScreen({
           Done
         </Text>
       </Pressable>
-    </View>
+    </Animated.View>
   );
 }
 const styles = StyleSheet.create({
@@ -77,4 +87,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 8,
   },
+  pressed: { opacity: 0.7 },
 });
