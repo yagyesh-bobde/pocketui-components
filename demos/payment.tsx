@@ -1,10 +1,18 @@
 import { useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { PaymentFlow } from '../flows/payment';
+import { HapticFeedbackTypes, trigger } from 'react-native-haptic-feedback';
+import { PaymentFlow, type PaymentFlowProps } from '../flows/payment';
 import { useTheme } from '../ui/theme';
 
 const payee = { name: 'Juniper Coffee', initials: 'JC', handle: 'juniper@example' };
 const account = { label: 'Demo account •• 2048', detail: 'Fictional balance · ₹25,000' };
+const haptics = {
+  selection: HapticFeedbackTypes.selection,
+  confirmation: HapticFeedbackTypes.impactMedium,
+  success: HapticFeedbackTypes.notificationSuccess,
+  error: HapticFeedbackTypes.notificationError,
+} as const;
+const onHaptic: PaymentFlowProps['onHaptic'] = (event) => trigger(haptics[event]);
 
 /** The host owns its app passcode. This demo never reads, stores, or logs the request. */
 export default function PaymentDemo() {
@@ -14,6 +22,7 @@ export default function PaymentDemo() {
       key={instance}
       payee={payee}
       account={account}
+      onHaptic={onHaptic}
       reference="DEMO-2048"
       onPay={() => new Promise<void>((resolve) => setTimeout(resolve, 5500))}
       onDone={() => setInstance((value) => value + 1)}
@@ -103,6 +112,7 @@ export function PaymentQADemo() {
           key={instance}
           payee={payee}
           account={account}
+          onHaptic={onHaptic}
           reference="QA-2048"
           onPay={() => {
             count('calls');
