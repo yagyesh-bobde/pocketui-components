@@ -1,0 +1,35 @@
+{
+  "name": "context-menu",
+  "title": "Context Menu",
+  "description": "An anchored actions menu that flips and clamps to the safe viewport.",
+  "kind": "component",
+  "entry": "ui/context-menu.tsx",
+  "files": [
+    {
+      "path": "ui/context-menu.tsx",
+      "target": "components/ui/context-menu.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    },
+    {
+      "path": "ui/interaction-utils.ts",
+      "target": "components/ui/interaction-utils.ts"
+    }
+  ],
+  "dependencies": {
+    "react-native-safe-area-context": ">=5.10.1"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Menus",
+  "hue": 260,
+  "createdAt": "2026-10-27",
+  "recording": {
+    "video": "/recordings/context-menu.mp4",
+    "poster": "/recordings/context-menu.avif",
+    "aspect": "1206/2622"
+  }
+}

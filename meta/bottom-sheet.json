@@ -1,0 +1,35 @@
+{
+  "name": "bottom-sheet",
+  "title": "Bottom Sheet",
+  "description": "A draggable modal sheet with snap points, scrollable content, and keyboard-aware forms.",
+  "kind": "component",
+  "entry": "ui/bottom-sheet.tsx",
+  "files": [
+    {
+      "path": "ui/bottom-sheet.tsx",
+      "target": "components/ui/bottom-sheet.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    },
+    {
+      "path": "ui/interaction-utils.ts",
+      "target": "components/ui/interaction-utils.ts"
+    }
+  ],
+  "dependencies": {
+    "react-native-safe-area-context": ">=5.10.1"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Sheets",
+  "hue": 165,
+  "createdAt": "2026-10-27",
+  "recording": {
+    "video": "/recordings/bottom-sheet.mp4",
+    "poster": "/recordings/bottom-sheet.avif",
+    "aspect": "1206/2622"
+  }
+}

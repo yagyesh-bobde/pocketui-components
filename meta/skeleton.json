@@ -1,0 +1,29 @@
+{
+  "name": "skeleton",
+  "title": "Skeleton",
+  "description": "Gently pulsing placeholders for profiles, cards, and text, with reduced-motion support.",
+  "kind": "component",
+  "entry": "ui/skeleton.tsx",
+  "files": [
+    {
+      "path": "ui/skeleton.tsx",
+      "target": "components/ui/skeleton.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Feedback",
+  "hue": 220,
+  "createdAt": "2026-10-27",
+  "recording": {
+    "video": "/recordings/skeleton.mp4",
+    "poster": "/recordings/skeleton.avif",
+    "aspect": "1206/2622"
+  }
+}
