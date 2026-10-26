@@ -6,6 +6,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
+    "types": ["react"],
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
@@ -17,5 +18,5 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "include": ["index.ts", "ui", "demos", "meta"]
+  "include": ["index.ts", "ui", "flows", "demos", "meta"]
 }

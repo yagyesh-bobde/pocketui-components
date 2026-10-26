@@ -2,6 +2,8 @@
   "name": "switch",
   "title": "Switch",
   "description": "On/off toggle whose track color and thumb slide animate on the UI thread with Reanimated.",
+  "kind": "component",
+  "entry": "ui/switch.tsx",
   "files": [{ "path": "ui/switch.tsx", "target": "components/ui/switch.tsx" }],
   "dependencies": {
     "react-native-reanimated": ">=4.0.0",

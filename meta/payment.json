@@ -1,0 +1,80 @@
+{
+  "name": "payment",
+  "title": "Payment",
+  "description": "A complete native payment flow with an exact amount keypad, explicit app passcode confirmation, guarded async processing, success, receipt and retry.",
+  "kind": "flow",
+  "entry": "flows/payment/index.tsx",
+  "screens": ["amount", "passcode", "processing", "success", "receipt", "failure"],
+  "files": [
+    {
+      "path": "flows/payment/index.tsx",
+      "target": "components/flows/payment/index.tsx"
+    },
+    {
+      "path": "flows/payment/model.ts",
+      "target": "components/flows/payment/model.ts"
+    },
+    {
+      "path": "flows/payment/parts/icons.tsx",
+      "target": "components/flows/payment/parts/icons.tsx"
+    },
+    {
+      "path": "flows/payment/parts/keypad.tsx",
+      "target": "components/flows/payment/parts/keypad.tsx"
+    },
+    {
+      "path": "flows/payment/parts/payment-mark.tsx",
+      "target": "components/flows/payment/parts/payment-mark.tsx"
+    },
+    {
+      "path": "flows/payment/parts/slide-to-pay.tsx",
+      "target": "components/flows/payment/parts/slide-to-pay.tsx"
+    },
+    {
+      "path": "flows/payment/screens/amount.tsx",
+      "target": "components/flows/payment/screens/amount.tsx"
+    },
+    {
+      "path": "flows/payment/screens/failure.tsx",
+      "target": "components/flows/payment/screens/failure.tsx"
+    },
+    {
+      "path": "flows/payment/screens/passcode.tsx",
+      "target": "components/flows/payment/screens/passcode.tsx"
+    },
+    {
+      "path": "flows/payment/screens/processing.tsx",
+      "target": "components/flows/payment/screens/processing.tsx"
+    },
+    {
+      "path": "flows/payment/screens/receipt.tsx",
+      "target": "components/flows/payment/screens/receipt.tsx"
+    },
+    {
+      "path": "flows/payment/screens/success.tsx",
+      "target": "components/flows/payment/screens/success.tsx"
+    },
+    {
+      "path": "flows/payment/use-payment.ts",
+      "target": "components/flows/payment/use-payment.ts"
+    }
+  ],
+  "dependencies": {
+    "react-native-gesture-handler": ">=3.4.0",
+    "react-native-reanimated": ">=4.7.1",
+    "react-native-worklets": ">=0.13.0",
+    "react-native-safe-area-context": ">=5.10.1",
+    "react-native-svg": ">=15.16.0"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Flows",
+  "hue": 160,
+  "createdAt": "2026-10-25",
+  "recording": {
+    "video": "/recordings/payment.mp4",
+    "poster": "/recordings/payment.avif",
+    "aspect": "1206/2622"
+  }
+}

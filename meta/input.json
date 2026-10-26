@@ -2,6 +2,8 @@
   "name": "input",
   "title": "Input",
   "description": "Themed TextInput that forwards every prop and highlights its border on focus.",
+  "kind": "component",
+  "entry": "ui/input.tsx",
   "files": [{ "path": "ui/input.tsx", "target": "components/ui/input.tsx" }],
   "dependencies": {},
   "registryDependencies": ["theme"],

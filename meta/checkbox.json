@@ -2,6 +2,8 @@
   "name": "checkbox",
   "title": "Checkbox",
   "description": "Controlled or uncontrolled checkbox with a check mark drawn from plain Views.",
+  "kind": "component",
+  "entry": "ui/checkbox.tsx",
   "files": [{ "path": "ui/checkbox.tsx", "target": "components/ui/checkbox.tsx" }],
   "dependencies": {},
   "registryDependencies": ["theme"],

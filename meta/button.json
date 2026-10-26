@@ -2,6 +2,8 @@
   "name": "button",
   "title": "Button",
   "description": "Pressable button in four variants and three sizes, with pressed and disabled states.",
+  "kind": "component",
+  "entry": "ui/button.tsx",
   "files": [{ "path": "ui/button.tsx", "target": "components/ui/button.tsx" }],
   "dependencies": {},
   "registryDependencies": ["theme"],
