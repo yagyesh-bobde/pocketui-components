@@ -1,0 +1,33 @@
+{
+  "name": "scramble-text",
+  "title": "Scramble Text",
+  "description": "Resolve changing characters into a readable message. For short intros, unlock moments, and playful confirmations.",
+  "kind": "component",
+  "entry": "ui/scramble-text.tsx",
+  "files": [
+    {
+      "path": "ui/scramble-text.tsx",
+      "target": "components/ui/scramble-text.tsx"
+    },
+    {
+      "path": "ui/text-animation.ts",
+      "target": "components/ui/text-animation.ts"
+    },
+    {
+      "path": "ui/text-animation-utils.ts",
+      "target": "components/ui/text-animation-utils.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Text",
+  "hue": 125,
+  "createdAt": "2026-10-26",
+  "recording": {
+    "video": "/recordings/scramble-text.mp4",
+    "poster": "/recordings/scramble-text.avif",
+    "aspect": "1206/2622"
+  }
+}
