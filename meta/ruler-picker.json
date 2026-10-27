@@ -1,0 +1,33 @@
+{
+  "name": "ruler-picker",
+  "title": "Ruler Picker",
+  "description": "Dial in a value on a tactile, snapping ruler with a fixed needle and accessible step controls.",
+  "category": "Pickers",
+  "hue": 165,
+  "dependencies": {},
+  "kind": "component",
+  "entry": "ui/ruler-picker.tsx",
+  "files": [
+    {
+      "path": "ui/ruler-picker.tsx",
+      "target": "components/ui/ruler-picker.tsx"
+    },
+    {
+      "path": "ui/ruler-utils.ts",
+      "target": "components/ui/ruler-utils.ts"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    }
+  ],
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "createdAt": "2026-10-27",
+  "recording": {
+    "video": "/recordings/ruler-picker.mp4",
+    "poster": "/recordings/ruler-picker.avif",
+    "aspect": "1206/2622"
+  }
+}

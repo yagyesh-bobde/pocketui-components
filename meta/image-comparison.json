@@ -1,0 +1,25 @@
+{
+  "name": "image-comparison",
+  "title": "Image Comparison",
+  "description": "Drag a seam between two full-size images or surfaces without stretching either side.",
+  "category": "Images",
+  "hue": 30,
+  "dependencies": {},
+  "kind": "component",
+  "entry": "ui/image-comparison.tsx",
+  "files": [
+    {
+      "path": "ui/image-comparison.tsx",
+      "target": "components/ui/image-comparison.tsx"
+    }
+  ],
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "createdAt": "2026-10-27",
+  "recording": {
+    "video": "/recordings/image-comparison.mp4",
+    "poster": "/recordings/image-comparison.avif",
+    "aspect": "1206/2622"
+  }
+}

@@ -7,11 +7,14 @@ import contextMenuMeta from './meta/context-menu.json';
 import feedFooter from './meta/feed-footer.json';
 import heroCarousel from './meta/hero-carousel.json';
 import highlightTextMeta from './meta/highlight-text.json';
+import holdToConfirmMeta from './meta/hold-to-confirm.json';
+import imageComparisonMeta from './meta/image-comparison.json';
 import input from './meta/input.json';
 import numberTickerMeta from './meta/number-ticker.json';
 import orbitMenuMeta from './meta/orbit-menu.json';
 import payment from './meta/payment.json';
 import rotatingTextMeta from './meta/rotating-text.json';
+import rulerPickerMeta from './meta/ruler-picker.json';
 import scrambleTextMeta from './meta/scramble-text.json';
 import scratchCardMeta from './meta/scratch-card.json';
 import searchBar from './meta/search-bar.json';
@@ -104,6 +107,9 @@ function gallery(meta: RawGalleryMeta): GalleryMeta {
 
 export const registry = {
   theme: normalizeMeta(theme),
+  'ruler-picker': gallery(rulerPickerMeta),
+  'image-comparison': gallery(imageComparisonMeta),
+  'hold-to-confirm': gallery(holdToConfirmMeta),
   'swipe-deck': gallery(swipeDeckMeta),
   'scratch-card': gallery(scratchCardMeta),
   'orbit-menu': gallery(orbitMenuMeta),
