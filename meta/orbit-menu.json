@@ -1,0 +1,33 @@
+{
+  "name": "orbit-menu",
+  "title": "Orbit Menu",
+  "description": "A spring-loaded constellation of actions around one little button. A playful starting point for a creative app.",
+  "kind": "component",
+  "entry": "ui/orbit-menu.tsx",
+  "files": [
+    {
+      "path": "ui/orbit-menu.tsx",
+      "target": "components/ui/orbit-menu.tsx"
+    },
+    {
+      "path": "ui/playful-utils.ts",
+      "target": "components/ui/playful-utils.ts"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Menus",
+  "hue": 200,
+  "createdAt": "2026-10-27",
+  "recording": {
+    "video": "/recordings/orbit-menu.mp4",
+    "poster": "/recordings/orbit-menu.avif",
+    "aspect": "1206/2622"
+  }
+}

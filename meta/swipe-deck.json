@@ -1,0 +1,33 @@
+{
+  "name": "swipe-deck",
+  "title": "Swipe Deck",
+  "description": "A tactile stack of cards that tilts under your finger. Flick left to pass, right to keep, or use the buttons.",
+  "kind": "component",
+  "entry": "ui/swipe-deck.tsx",
+  "files": [
+    {
+      "path": "ui/swipe-deck.tsx",
+      "target": "components/ui/swipe-deck.tsx"
+    },
+    {
+      "path": "ui/playful-utils.ts",
+      "target": "components/ui/playful-utils.ts"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Carousels",
+  "hue": 155,
+  "createdAt": "2026-10-27",
+  "recording": {
+    "video": "/recordings/swipe-deck.mp4",
+    "poster": "/recordings/swipe-deck.avif",
+    "aspect": "1206/2622"
+  }
+}

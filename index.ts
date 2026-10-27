@@ -9,12 +9,15 @@ import heroCarousel from './meta/hero-carousel.json';
 import highlightTextMeta from './meta/highlight-text.json';
 import input from './meta/input.json';
 import numberTickerMeta from './meta/number-ticker.json';
+import orbitMenuMeta from './meta/orbit-menu.json';
 import payment from './meta/payment.json';
 import rotatingTextMeta from './meta/rotating-text.json';
 import scrambleTextMeta from './meta/scramble-text.json';
+import scratchCardMeta from './meta/scratch-card.json';
 import searchBar from './meta/search-bar.json';
 import shimmerTextMeta from './meta/shimmer-text.json';
 import skeletonMeta from './meta/skeleton.json';
+import swipeDeckMeta from './meta/swipe-deck.json';
 import swipeableRowMeta from './meta/swipeable-row.json';
 import switchMeta from './meta/switch.json';
 import tabs from './meta/tabs.json';
@@ -101,6 +104,9 @@ function gallery(meta: RawGalleryMeta): GalleryMeta {
 
 export const registry = {
   theme: normalizeMeta(theme),
+  'swipe-deck': gallery(swipeDeckMeta),
+  'scratch-card': gallery(scratchCardMeta),
+  'orbit-menu': gallery(orbitMenuMeta),
   'bottom-sheet': gallery(bottomSheetMeta),
   toast: gallery(toastMeta),
   skeleton: gallery(skeletonMeta),

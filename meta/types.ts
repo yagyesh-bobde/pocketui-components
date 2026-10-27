@@ -34,18 +34,21 @@ export interface ComponentMeta {
   readonly isNew: boolean;
 }
 
-/** Gallery groups on the docs home page, in rail order. */
+/** Functional component families, in gallery and docs navigation order. */
 export const componentCategories = [
   'Accordions',
   'Badges',
   'Buttons',
+  'Cards',
   'Carousels',
   'Feedback',
   'Flows',
   'Footers',
   'Forms',
   'Lists',
+  'Loading',
   'Menus',
+  'Search',
   'Sheets',
   'Tabs',
   'Text',

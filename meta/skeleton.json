@@ -18,7 +18,7 @@
   "registryDependencies": ["theme"],
   "minReactNative": "0.86.0",
   "isNew": true,
-  "category": "Feedback",
+  "category": "Loading",
   "hue": 220,
   "createdAt": "2026-10-27",
   "recording": {

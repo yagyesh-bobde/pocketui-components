@@ -1,0 +1,31 @@
+{
+  "name": "scratch-card",
+  "title": "Scratch Card",
+  "description": "Rub away a patterned surface to uncover a little surprise, with real stroke coverage and an accessible reveal.",
+  "kind": "component",
+  "entry": "ui/scratch-card.tsx",
+  "files": [
+    {
+      "path": "ui/scratch-card.tsx",
+      "target": "components/ui/scratch-card.tsx"
+    },
+    {
+      "path": "ui/playful-utils.ts",
+      "target": "components/ui/playful-utils.ts"
+    }
+  ],
+  "dependencies": {
+    "react-native-svg": ">=15.16.0"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Cards",
+  "hue": 42,
+  "createdAt": "2026-10-27",
+  "recording": {
+    "video": "/recordings/scratch-card.mp4",
+    "poster": "/recordings/scratch-card.avif",
+    "aspect": "1206/2622"
+  }
+}

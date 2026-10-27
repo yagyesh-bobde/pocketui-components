@@ -12,7 +12,7 @@
   "registryDependencies": ["theme"],
   "minReactNative": "0.86.0",
   "isNew": true,
-  "category": "Forms",
+  "category": "Search",
   "hue": 95,
   "createdAt": "2026-10-22",
   "recording": {
