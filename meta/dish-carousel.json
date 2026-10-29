@@ -1,0 +1,64 @@
+{
+  "name": "dish-carousel",
+  "title": "Dish Carousel",
+  "description": "Centre-scaled dish cards with a hand-lifted cloche reveal, cyclic swipes and a floating 3D ADD stepper.",
+  "kind": "component",
+  "entry": "ui/dish-carousel.tsx",
+  "files": [
+    {
+      "path": "ui/dish-carousel.tsx",
+      "target": "components/ui/dish-carousel.tsx"
+    },
+    {
+      "path": "ui/dish-carousel-state.ts",
+      "target": "components/ui/dish-carousel-state.ts"
+    },
+    {
+      "path": "ui/assets/dish-carousel/background.png",
+      "target": "components/ui/assets/dish-carousel/background.png",
+      "type": "asset"
+    },
+    {
+      "path": "ui/assets/dish-carousel/cloche.png",
+      "target": "components/ui/assets/dish-carousel/cloche.png",
+      "type": "asset"
+    },
+    {
+      "path": "ui/assets/dish-carousel/clock.png",
+      "target": "components/ui/assets/dish-carousel/clock.png",
+      "type": "asset"
+    },
+    {
+      "path": "ui/assets/dish-carousel/heading.json",
+      "target": "components/ui/assets/dish-carousel/heading.json",
+      "type": "asset"
+    },
+    {
+      "path": "ui/assets/dish-carousel/reveal.json",
+      "target": "components/ui/assets/dish-carousel/reveal.json",
+      "type": "asset"
+    },
+    {
+      "path": "ui/assets/dish-carousel/veg.png",
+      "target": "components/ui/assets/dish-carousel/veg.png",
+      "type": "asset"
+    }
+  ],
+  "dependencies": {
+    "lottie-react-native": ">=7.5.0",
+    "react-native-svg": ">=15.16.0",
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-worklets": ">=0.5.0"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Carousels",
+  "hue": 151,
+  "createdAt": "2026-10-28",
+  "recording": {
+    "video": "/recordings/dish-carousel.mp4",
+    "poster": "/recordings/dish-carousel.avif",
+    "aspect": "1080/2400"
+  }
+}

@@ -4,6 +4,7 @@ import bottomSheetMeta from './meta/bottom-sheet.json';
 import button from './meta/button.json';
 import checkbox from './meta/checkbox.json';
 import contextMenuMeta from './meta/context-menu.json';
+import dishCarousel from './meta/dish-carousel.json';
 import feedFooter from './meta/feed-footer.json';
 import heroCarousel from './meta/hero-carousel.json';
 import highlightTextMeta from './meta/highlight-text.json';
@@ -124,6 +125,7 @@ export const registry = {
   checkbox: gallery(checkbox),
   'feed-footer': gallery(feedFooter),
   'hero-carousel': gallery(heroCarousel),
+  'dish-carousel': gallery(dishCarousel),
   input: gallery(input),
   payment: gallery(payment),
   'search-bar': gallery(searchBar),
