@@ -1,0 +1,37 @@
+{
+  "name": "cube-carousel",
+  "title": "Cube Carousel",
+  "description": "A full-screen story pager with edge-anchored cube turns, directional shading, and a spring snap.",
+  "kind": "component",
+  "entry": "ui/cube-carousel.tsx",
+  "files": [
+    {
+      "path": "ui/cube-carousel.tsx",
+      "target": "components/ui/cube-carousel.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    },
+    {
+      "path": "ui/screen-motion.ts",
+      "target": "components/ui/screen-motion.ts"
+    }
+  ],
+  "dependencies": {
+    "react-native-gesture-handler": ">=3.4.0",
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-worklets": ">=0.5.0"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Carousels",
+  "hue": 225,
+  "createdAt": "2026-10-29",
+  "recording": {
+    "video": "/recordings/cube-carousel.mp4",
+    "poster": "/recordings/cube-carousel.avif",
+    "aspect": "1080/2400"
+  }
+}

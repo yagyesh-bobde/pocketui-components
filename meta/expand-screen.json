@@ -1,0 +1,36 @@
+{
+  "name": "expand-screen",
+  "title": "Expand Screen",
+  "description": "Reveal a full-screen conversation from its tapped row through an expanding rounded window.",
+  "kind": "component",
+  "entry": "ui/expand-screen.tsx",
+  "files": [
+    {
+      "path": "ui/expand-screen.tsx",
+      "target": "components/ui/expand-screen.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    },
+    {
+      "path": "ui/screen-motion.ts",
+      "target": "components/ui/screen-motion.ts"
+    }
+  ],
+  "dependencies": {
+    "react-native-reanimated": ">=4.0.0",
+    "react-native-worklets": ">=0.5.0"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "Sheets",
+  "hue": 165,
+  "createdAt": "2026-10-29",
+  "recording": {
+    "video": "/recordings/expand-screen.mp4",
+    "poster": "/recordings/expand-screen.avif",
+    "aspect": "1080/2400"
+  }
+}
