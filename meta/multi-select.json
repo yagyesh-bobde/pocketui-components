@@ -1,0 +1,20 @@
+{
+  "name": "multi-select",
+  "title": "Multi Select",
+  "description": "Pick several options in a native modal, review selected chips, and commit with Done or cancel the draft.",
+  "kind": "component",
+  "entry": "ui/multi-select.tsx",
+  "files": [{ "path": "ui/multi-select.tsx", "target": "components/ui/multi-select.tsx" }],
+  "dependencies": {},
+  "registryDependencies": ["theme", "select"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "Forms",
+  "hue": 265,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/multi-select.mp4",
+    "poster": "/recordings/multi-select.avif",
+    "aspect": "1206/2622"
+  }
+}

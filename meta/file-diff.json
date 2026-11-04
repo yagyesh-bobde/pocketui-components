@@ -1,0 +1,29 @@
+{
+  "name": "file-diff",
+  "title": "File Diff",
+  "description": "A readable native diff with added, removed, and unchanged lines, line numbers, and honest displayed counts.",
+  "category": "AI Tools",
+  "hue": 135,
+  "kind": "component",
+  "entry": "ui/file-diff.tsx",
+  "files": [
+    {
+      "path": "ui/file-diff.tsx",
+      "target": "components/ui/file-diff.tsx"
+    },
+    {
+      "path": "ui/ai-tool-utils.ts",
+      "target": "components/ui/ai-tool-utils.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/file-diff.mp4",
+    "poster": "/recordings/file-diff.avif",
+    "aspect": "1206/2622"
+  }
+}

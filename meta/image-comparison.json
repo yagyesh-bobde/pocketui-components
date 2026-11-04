@@ -15,7 +15,7 @@
   ],
   "registryDependencies": ["theme"],
   "minReactNative": "0.86.0",
-  "isNew": true,
+  "isNew": false,
   "createdAt": "2026-10-27",
   "recording": {
     "video": "/recordings/image-comparison.mp4",

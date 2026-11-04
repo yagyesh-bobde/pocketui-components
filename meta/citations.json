@@ -1,0 +1,29 @@
+{
+  "name": "citations",
+  "title": "Citations",
+  "description": "Numbered source chips and excerpts with host navigation or validated http(s) links.",
+  "category": "AI Tools",
+  "hue": 145,
+  "kind": "component",
+  "entry": "ui/citations.tsx",
+  "files": [
+    {
+      "path": "ui/citations.tsx",
+      "target": "components/ui/citations.tsx"
+    },
+    {
+      "path": "ui/ai-tool-utils.ts",
+      "target": "components/ui/ai-tool-utils.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/citations.mp4",
+    "poster": "/recordings/citations.avif",
+    "aspect": "1206/2622"
+  }
+}

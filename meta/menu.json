@@ -1,0 +1,35 @@
+{
+  "name": "menu",
+  "title": "Menu",
+  "description": "A press-to-open action menu with descriptions, disabled actions, safe viewport positioning, and controlled state.",
+  "category": "Menus",
+  "hue": 170,
+  "kind": "component",
+  "entry": "ui/menu.tsx",
+  "files": [
+    {
+      "path": "ui/menu.tsx",
+      "target": "components/ui/menu.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    },
+    {
+      "path": "ui/interaction-utils.ts",
+      "target": "components/ui/interaction-utils.ts"
+    }
+  ],
+  "dependencies": {
+    "react-native-safe-area-context": ">=5.10.1"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/menu.mp4",
+    "poster": "/recordings/menu.avif",
+    "aspect": "1206/2622"
+  }
+}

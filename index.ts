@@ -1,28 +1,53 @@
 import accordion from './meta/accordion.json';
+import agentActivityMeta from './meta/agent-activity.json';
+import alertMeta from './meta/alert.json';
+import animatedBadgeMeta from './meta/animated-badge.json';
+import approvalCardMeta from './meta/approval-card.json';
 import badge from './meta/badge.json';
 import bottomSheetMeta from './meta/bottom-sheet.json';
 import button from './meta/button.json';
+import cardMeta from './meta/card.json';
 import checkbox from './meta/checkbox.json';
+import citationsMeta from './meta/citations.json';
+import codeBlockMeta from './meta/code-block.json';
+import colorPickerMeta from './meta/color-picker.json';
 import contextMenuMeta from './meta/context-menu.json';
 import cubeCarousel from './meta/cube-carousel.json';
 import dishCarousel from './meta/dish-carousel.json';
 import expandScreen from './meta/expand-screen.json';
+import expandableControlMeta from './meta/expandable-control.json';
 import feedFooter from './meta/feed-footer.json';
+import fileDiffMeta from './meta/file-diff.json';
 import heroCarousel from './meta/hero-carousel.json';
 import highlightTextMeta from './meta/highlight-text.json';
 import holdToConfirmMeta from './meta/hold-to-confirm.json';
 import imageComparisonMeta from './meta/image-comparison.json';
+import imageGenerationMeta from './meta/image-generation.json';
 import input from './meta/input.json';
+import loaderMeta from './meta/loader.json';
+import loadingStatesMeta from './meta/loading-states.json';
+import menuMeta from './meta/menu.json';
+import messageMeta from './meta/message.json';
+import messageBubbleMeta from './meta/message-bubble.json';
+import messageScrollerMeta from './meta/message-scroller.json';
+import morphingModalMeta from './meta/morphing-modal.json';
+import multiSelectMeta from './meta/multi-select.json';
 import numberTickerMeta from './meta/number-ticker.json';
 import orbitMenuMeta from './meta/orbit-menu.json';
+import otpInputMeta from './meta/otp-input.json';
 import payment from './meta/payment.json';
+import promptInputMeta from './meta/prompt-input.json';
+import radioMeta from './meta/radio.json';
+import rangeSliderMeta from './meta/range-slider.json';
 import rotatingTextMeta from './meta/rotating-text.json';
 import rulerPickerMeta from './meta/ruler-picker.json';
 import scrambleTextMeta from './meta/scramble-text.json';
 import scratchCardMeta from './meta/scratch-card.json';
 import searchBar from './meta/search-bar.json';
+import selectMeta from './meta/select.json';
 import shimmerTextMeta from './meta/shimmer-text.json';
 import skeletonMeta from './meta/skeleton.json';
+import streamingResponseMeta from './meta/streaming-response.json';
 import swipeDeckMeta from './meta/swipe-deck.json';
 import swipeableRowMeta from './meta/swipeable-row.json';
 import switchMeta from './meta/switch.json';
@@ -30,6 +55,9 @@ import tabs from './meta/tabs.json';
 import textRevealMeta from './meta/text-reveal.json';
 import theme from './meta/theme.json';
 import toastMeta from './meta/toast.json';
+import todoListMeta from './meta/todo-list.json';
+import toolApprovalMeta from './meta/tool-approval.json';
+import toolResultMeta from './meta/tool-result.json';
 import {
   type ComponentCategory,
   type ComponentMeta,
@@ -42,6 +70,7 @@ import {
   registryKinds,
 } from './meta/types';
 import typewriterMeta from './meta/typewriter.json';
+import voiceOrbMeta from './meta/voice-orb.json';
 import waveTextMeta from './meta/wave-text.json';
 
 /** A meta JSON as imported: string unions are widened to `string`. */
@@ -110,6 +139,35 @@ function gallery(meta: RawGalleryMeta): GalleryMeta {
 
 export const registry = {
   theme: normalizeMeta(theme),
+  message: gallery(messageMeta),
+  'message-bubble': gallery(messageBubbleMeta),
+  'message-scroller': gallery(messageScrollerMeta),
+  'prompt-input': gallery(promptInputMeta),
+  'streaming-response': gallery(streamingResponseMeta),
+  'loading-states': gallery(loadingStatesMeta),
+  'agent-activity': gallery(agentActivityMeta),
+  'todo-list': gallery(todoListMeta),
+  'tool-approval': gallery(toolApprovalMeta),
+  'approval-card': gallery(approvalCardMeta),
+  'tool-result': gallery(toolResultMeta),
+  citations: gallery(citationsMeta),
+  'code-block': gallery(codeBlockMeta),
+  'file-diff': gallery(fileDiffMeta),
+  'image-generation': gallery(imageGenerationMeta),
+  'voice-orb': gallery(voiceOrbMeta),
+  card: gallery(cardMeta),
+  alert: gallery(alertMeta),
+  radio: gallery(radioMeta),
+  'otp-input': gallery(otpInputMeta),
+  select: gallery(selectMeta),
+  'multi-select': gallery(multiSelectMeta),
+  'range-slider': gallery(rangeSliderMeta),
+  'color-picker': gallery(colorPickerMeta),
+  'expandable-control': gallery(expandableControlMeta),
+  menu: gallery(menuMeta),
+  'animated-badge': gallery(animatedBadgeMeta),
+  loader: gallery(loaderMeta),
+  'morphing-modal': gallery(morphingModalMeta),
   'ruler-picker': gallery(rulerPickerMeta),
   'image-comparison': gallery(imageComparisonMeta),
   'hold-to-confirm': gallery(holdToConfirmMeta),

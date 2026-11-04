@@ -23,7 +23,7 @@
   },
   "registryDependencies": ["theme"],
   "minReactNative": "0.86.0",
-  "isNew": true,
+  "isNew": false,
   "category": "Menus",
   "hue": 260,
   "createdAt": "2026-10-27",

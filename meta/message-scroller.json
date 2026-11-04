@@ -1,0 +1,29 @@
+{
+  "name": "message-scroller",
+  "title": "Message Scroller",
+  "description": "A native conversation scroller that follows at the bottom and lets readers jump to the latest message.",
+  "kind": "component",
+  "entry": "ui/message-scroller.tsx",
+  "files": [
+    {
+      "path": "ui/message-scroller.tsx",
+      "target": "components/ui/message-scroller.tsx"
+    },
+    {
+      "path": "ui/chat-state.ts",
+      "target": "components/ui/chat-state.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "category": "AI Chat",
+  "hue": 155,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/message-scroller.mp4",
+    "poster": "/recordings/message-scroller.avif",
+    "aspect": "1206/2622"
+  }
+}

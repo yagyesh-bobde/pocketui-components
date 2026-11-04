@@ -1,0 +1,20 @@
+{
+  "name": "select",
+  "title": "Select",
+  "description": "Choose one option from an accessible native modal, with descriptions, disabled rows, and cancel behavior.",
+  "kind": "component",
+  "entry": "ui/select.tsx",
+  "files": [{ "path": "ui/select.tsx", "target": "components/ui/select.tsx" }],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "Forms",
+  "hue": 155,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/select.mp4",
+    "poster": "/recordings/select.avif",
+    "aspect": "1206/2622"
+  }
+}

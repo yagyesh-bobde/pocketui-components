@@ -1,0 +1,29 @@
+{
+  "name": "voice-orb",
+  "title": "Voice Orb",
+  "description": "Controlled visual voice states with adjustable intensity and system-aware motion, without microphone access.",
+  "category": "AI Media",
+  "hue": 160,
+  "kind": "component",
+  "entry": "ui/voice-orb.tsx",
+  "files": [
+    {
+      "path": "ui/voice-orb.tsx",
+      "target": "components/ui/voice-orb.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/voice-orb.mp4",
+    "poster": "/recordings/voice-orb.avif",
+    "aspect": "1206/2622"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "color-picker",
+  "title": "Color Picker",
+  "description": "A selected-color preview, accessible palette swatches, and validated custom hex entry. No HSV canvas or alpha channel.",
+  "kind": "component",
+  "entry": "ui/color-picker.tsx",
+  "files": [{ "path": "ui/color-picker.tsx", "target": "components/ui/color-picker.tsx" }],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "Pickers",
+  "hue": 320,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/color-picker.mp4",
+    "poster": "/recordings/color-picker.avif",
+    "aspect": "1206/2622"
+  }
+}

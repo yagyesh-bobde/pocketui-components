@@ -1,0 +1,29 @@
+{
+  "name": "code-block",
+  "title": "Code Block",
+  "description": "Selectable native code with line numbers, horizontal scrolling, and an optional host-owned action.",
+  "category": "AI Tools",
+  "hue": 215,
+  "kind": "component",
+  "entry": "ui/code-block.tsx",
+  "files": [
+    {
+      "path": "ui/code-block.tsx",
+      "target": "components/ui/code-block.tsx"
+    },
+    {
+      "path": "ui/ai-tool-utils.ts",
+      "target": "components/ui/ai-tool-utils.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/code-block.mp4",
+    "poster": "/recordings/code-block.avif",
+    "aspect": "1206/2622"
+  }
+}

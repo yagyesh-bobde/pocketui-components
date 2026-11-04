@@ -1,0 +1,29 @@
+{
+  "name": "loader",
+  "title": "Loader",
+  "description": "Accessible indeterminate spinner and dots indicators with configurable size, color, and reduced motion.",
+  "category": "Loading",
+  "hue": 200,
+  "kind": "component",
+  "entry": "ui/loader.tsx",
+  "files": [
+    {
+      "path": "ui/loader.tsx",
+      "target": "components/ui/loader.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/loader.mp4",
+    "poster": "/recordings/loader.avif",
+    "aspect": "1206/2622"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "message",
+  "title": "Message",
+  "description": "Composable native message rows with avatars, headers, content and metadata.",
+  "kind": "component",
+  "entry": "ui/message.tsx",
+  "files": [
+    {
+      "path": "ui/message.tsx",
+      "target": "components/ui/message.tsx"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "AI Chat",
+  "hue": 155,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/message.mp4",
+    "poster": "/recordings/message.avif",
+    "aspect": "1206/2622"
+  }
+}

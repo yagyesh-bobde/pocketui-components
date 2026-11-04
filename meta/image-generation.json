@@ -1,0 +1,25 @@
+{
+  "name": "image-generation",
+  "title": "Image Generation",
+  "description": "Host-controlled pending, completed, and failed image requests with an accessible result and retry action.",
+  "category": "AI Media",
+  "hue": 280,
+  "kind": "component",
+  "entry": "ui/image-generation.tsx",
+  "files": [
+    {
+      "path": "ui/image-generation.tsx",
+      "target": "components/ui/image-generation.tsx"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme", "loader"],
+  "minReactNative": "0.86.0",
+  "isNew": true,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/image-generation.mp4",
+    "poster": "/recordings/image-generation.avif",
+    "aspect": "1206/2622"
+  }
+}

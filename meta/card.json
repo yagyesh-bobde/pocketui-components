@@ -1,0 +1,20 @@
+{
+  "name": "card",
+  "title": "Card",
+  "description": "Composable content surfaces with outline and filled variants, optional selection and full-card press feedback.",
+  "kind": "component",
+  "entry": "ui/card.tsx",
+  "files": [{ "path": "ui/card.tsx", "target": "components/ui/card.tsx" }],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "Cards",
+  "hue": 155,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/card.mp4",
+    "poster": "/recordings/card.avif",
+    "aspect": "1206/2622"
+  }
+}

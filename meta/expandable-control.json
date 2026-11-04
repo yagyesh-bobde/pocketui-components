@@ -1,0 +1,29 @@
+{
+  "name": "expandable-control",
+  "title": "Expandable Control",
+  "description": "A compact control that reveals a measured toolbar or settings panel, with controlled state and reduced motion.",
+  "category": "Buttons",
+  "hue": 155,
+  "kind": "component",
+  "entry": "ui/expandable-control.tsx",
+  "files": [
+    {
+      "path": "ui/expandable-control.tsx",
+      "target": "components/ui/expandable-control.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/expandable-control.mp4",
+    "poster": "/recordings/expandable-control.avif",
+    "aspect": "1206/2622"
+  }
+}
