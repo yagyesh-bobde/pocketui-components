@@ -52,7 +52,7 @@
   },
   "registryDependencies": ["theme"],
   "minReactNative": "0.86.0",
-  "isNew": true,
+  "isNew": false,
   "category": "Carousels",
   "hue": 151,
   "createdAt": "2026-10-28",

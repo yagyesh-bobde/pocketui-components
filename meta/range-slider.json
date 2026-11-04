@@ -1,0 +1,23 @@
+{
+  "name": "range-slider",
+  "title": "Range Slider",
+  "description": "Adjust one value with a draggable thumb, precise step buttons, clamped bounds, and screen-reader actions.",
+  "kind": "component",
+  "entry": "ui/range-slider.tsx",
+  "files": [
+    { "path": "ui/range-slider.tsx", "target": "components/ui/range-slider.tsx" },
+    { "path": "ui/range-slider-state.ts", "target": "components/ui/range-slider-state.ts" }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "Forms",
+  "hue": 190,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/range-slider.mp4",
+    "poster": "/recordings/range-slider.avif",
+    "aspect": "1206/2622"
+  }
+}

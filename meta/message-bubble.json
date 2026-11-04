@@ -1,0 +1,25 @@
+{
+  "name": "message-bubble",
+  "title": "Message Bubble",
+  "description": "User, assistant and system message surfaces with custom bodies and footers.",
+  "kind": "component",
+  "entry": "ui/message-bubble.tsx",
+  "files": [
+    {
+      "path": "ui/message-bubble.tsx",
+      "target": "components/ui/message-bubble.tsx"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme", "message"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "AI Chat",
+  "hue": 155,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/message-bubble.mp4",
+    "poster": "/recordings/message-bubble.avif",
+    "aspect": "1206/2622"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "approval-card",
+  "title": "Approval Card",
+  "description": "A reviewable proposed action with selectable details and explicit host-owned approval or rejection.",
+  "category": "AI Tools",
+  "hue": 170,
+  "kind": "component",
+  "entry": "ui/approval-card.tsx",
+  "files": [
+    {
+      "path": "ui/approval-card.tsx",
+      "target": "components/ui/approval-card.tsx"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme", "tool-approval"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/approval-card.mp4",
+    "poster": "/recordings/approval-card.avif",
+    "aspect": "1206/2622"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "loading-states",
+  "title": "Loading States",
+  "description": "Accessible thinking, searching and writing feedback with optional cancellation.",
+  "kind": "component",
+  "entry": "ui/loading-states.tsx",
+  "files": [
+    {
+      "path": "ui/loading-states.tsx",
+      "target": "components/ui/loading-states.tsx"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme", "loader"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "AI Chat",
+  "hue": 155,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/loading-states.mp4",
+    "poster": "/recordings/loading-states.avif",
+    "aspect": "1206/2622"
+  }
+}

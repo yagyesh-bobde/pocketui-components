@@ -1,0 +1,23 @@
+{
+  "name": "radio",
+  "title": "Radio Group",
+  "description": "Controlled or uncontrolled single-choice groups with spring selection dots, descriptive labels and disabled options.",
+  "kind": "component",
+  "entry": "ui/radio.tsx",
+  "files": [{ "path": "ui/radio.tsx", "target": "components/ui/radio.tsx" }],
+  "dependencies": {
+    "react-native-reanimated": ">=4.7.1",
+    "react-native-worklets": ">=0.13.0"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "Forms",
+  "hue": 255,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/radio.mp4",
+    "poster": "/recordings/radio.avif",
+    "aspect": "1206/2622"
+  }
+}

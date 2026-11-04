@@ -1,0 +1,25 @@
+{
+  "name": "streaming-response",
+  "title": "Streaming Response",
+  "description": "Progressively supplied response text with streaming, complete, interrupted and stopped states.",
+  "kind": "component",
+  "entry": "ui/streaming-response.tsx",
+  "files": [
+    {
+      "path": "ui/streaming-response.tsx",
+      "target": "components/ui/streaming-response.tsx"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "AI Chat",
+  "hue": 155,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/streaming-response.mp4",
+    "poster": "/recordings/streaming-response.avif",
+    "aspect": "1206/2622"
+  }
+}

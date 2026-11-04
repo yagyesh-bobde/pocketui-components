@@ -1,0 +1,25 @@
+{
+  "name": "prompt-input",
+  "title": "Prompt Input",
+  "description": "A controlled multiline composer with send, stop and explicit host-owned submission.",
+  "kind": "component",
+  "entry": "ui/prompt-input.tsx",
+  "files": [
+    {
+      "path": "ui/prompt-input.tsx",
+      "target": "components/ui/prompt-input.tsx"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "AI Chat",
+  "hue": 155,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/prompt-input.mp4",
+    "poster": "/recordings/prompt-input.avif",
+    "aspect": "1206/2622"
+  }
+}

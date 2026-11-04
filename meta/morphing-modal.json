@@ -1,0 +1,31 @@
+{
+  "name": "morphing-modal",
+  "title": "Morphing Modal",
+  "description": "Expand a measured card into a centered dialog, then return to its source with close, back, and reduced motion support.",
+  "category": "Sheets",
+  "hue": 145,
+  "kind": "component",
+  "entry": "ui/morphing-modal.tsx",
+  "files": [
+    {
+      "path": "ui/morphing-modal.tsx",
+      "target": "components/ui/morphing-modal.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    }
+  ],
+  "dependencies": {
+    "react-native-safe-area-context": ">=5.10.1"
+  },
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/morphing-modal.mp4",
+    "poster": "/recordings/morphing-modal.avif",
+    "aspect": "1206/2622"
+  }
+}

@@ -19,7 +19,7 @@
   },
   "registryDependencies": ["theme"],
   "minReactNative": "0.86.0",
-  "isNew": true,
+  "isNew": false,
   "category": "Feedback",
   "hue": 150,
   "createdAt": "2026-10-27",

@@ -1,0 +1,29 @@
+{
+  "name": "tool-approval",
+  "title": "Tool Approval",
+  "description": "Explicit approve and decline actions with host-controlled request state, guarded callbacks, and visible errors.",
+  "category": "AI Tools",
+  "hue": 155,
+  "kind": "component",
+  "entry": "ui/tool-approval.tsx",
+  "files": [
+    {
+      "path": "ui/tool-approval.tsx",
+      "target": "components/ui/tool-approval.tsx"
+    },
+    {
+      "path": "ui/ai-tool-utils.ts",
+      "target": "components/ui/ai-tool-utils.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/tool-approval.mp4",
+    "poster": "/recordings/tool-approval.avif",
+    "aspect": "1206/2622"
+  }
+}

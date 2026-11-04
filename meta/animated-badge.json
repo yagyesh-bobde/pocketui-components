@@ -1,0 +1,29 @@
+{
+  "name": "animated-badge",
+  "title": "Animated Badge",
+  "description": "A status pill with a gentle optional halo, four semantic tones, and system-aware motion.",
+  "category": "Badges",
+  "hue": 150,
+  "kind": "component",
+  "entry": "ui/animated-badge.tsx",
+  "files": [
+    {
+      "path": "ui/animated-badge.tsx",
+      "target": "components/ui/animated-badge.tsx"
+    },
+    {
+      "path": "ui/interaction-motion.ts",
+      "target": "components/ui/interaction-motion.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/animated-badge.mp4",
+    "poster": "/recordings/animated-badge.avif",
+    "aspect": "1206/2622"
+  }
+}

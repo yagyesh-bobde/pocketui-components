@@ -1,0 +1,23 @@
+{
+  "name": "otp-input",
+  "title": "OTP Input",
+  "description": "A single native verification-code input with visual digit slots, paste support, SMS autofill and explicit validation states.",
+  "kind": "component",
+  "entry": "ui/otp-input.tsx",
+  "files": [
+    { "path": "ui/otp-input.tsx", "target": "components/ui/otp-input.tsx" },
+    { "path": "ui/otp-input-state.ts", "target": "components/ui/otp-input-state.ts" }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "Forms",
+  "hue": 220,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/otp-input.mp4",
+    "poster": "/recordings/otp-input.avif",
+    "aspect": "1206/2622"
+  }
+}

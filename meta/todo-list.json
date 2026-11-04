@@ -1,0 +1,29 @@
+{
+  "name": "todo-list",
+  "title": "Todo List",
+  "description": "Controlled task statuses with accessible toggles, blocked items and completion progress.",
+  "kind": "component",
+  "entry": "ui/todo-list.tsx",
+  "files": [
+    {
+      "path": "ui/todo-list.tsx",
+      "target": "components/ui/todo-list.tsx"
+    },
+    {
+      "path": "ui/chat-state.ts",
+      "target": "components/ui/chat-state.ts"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "AI Agents",
+  "hue": 155,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/todo-list.mp4",
+    "poster": "/recordings/todo-list.avif",
+    "aspect": "1206/2622"
+  }
+}

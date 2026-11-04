@@ -1,0 +1,25 @@
+{
+  "name": "agent-activity",
+  "title": "Agent Activity",
+  "description": "An ordered activity timeline with queued, running, complete and failed steps.",
+  "kind": "component",
+  "entry": "ui/agent-activity.tsx",
+  "files": [
+    {
+      "path": "ui/agent-activity.tsx",
+      "target": "components/ui/agent-activity.tsx"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme", "loader"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "category": "AI Agents",
+  "hue": 155,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/agent-activity.mp4",
+    "poster": "/recordings/agent-activity.avif",
+    "aspect": "1206/2622"
+  }
+}

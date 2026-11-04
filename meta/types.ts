@@ -36,6 +36,10 @@ export interface ComponentMeta {
 
 /** Functional component families, in gallery and docs navigation order. */
 export const componentCategories = [
+  'AI Chat',
+  'AI Agents',
+  'AI Tools',
+  'AI Media',
   'Accordions',
   'Badges',
   'Buttons',

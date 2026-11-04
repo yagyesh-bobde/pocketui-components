@@ -1,0 +1,25 @@
+{
+  "name": "tool-result",
+  "title": "Tool Result",
+  "description": "Running, success, and failure states with a useful summary and expandable selectable tool output.",
+  "category": "AI Tools",
+  "hue": 190,
+  "kind": "component",
+  "entry": "ui/tool-result.tsx",
+  "files": [
+    {
+      "path": "ui/tool-result.tsx",
+      "target": "components/ui/tool-result.tsx"
+    }
+  ],
+  "dependencies": {},
+  "registryDependencies": ["theme", "loader"],
+  "minReactNative": "0.86.0",
+  "isNew": false,
+  "createdAt": "2026-11-02",
+  "recording": {
+    "video": "/recordings/tool-result.mp4",
+    "poster": "/recordings/tool-result.avif",
+    "aspect": "1206/2622"
+  }
+}
